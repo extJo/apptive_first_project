@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">부산대 이수과목</string>
+    <string name="hello">안녕하세요</string>
+    <string name="suffix">입니다</string>
+    <string name="click">Click</string>
+    <string name="title_activity_temp">temp</string>
+    <string name="department">학과 및 전공</string>
+    <string name="department_input">학과 및 전공을 아래 검색란에 입력해주세요</string>
+    <string name="admission">입학 년도</string>
+    <string name="admission_input">입학 년도를 선택해주세요.</string>
+    <string name="setting">설정이</string>
+    <string name="setting_suffix">완료되었습니다.</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

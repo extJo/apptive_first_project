@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#2e2e2e"/>
+            <!-- 모서리 설정 -->
+            <corners
+                android:bottomLeftRadius="5dp"
+                android:bottomRightRadius="5dp"
+                android:topLeftRadius="5dp"
+                android:topRightRadius="5dp"/>
+            <!-- 테두리 설정 -->
+            <stroke
+                android:width="2dp"
+                android:color="#FFA500"/>
+        </shape>
+    </item>
+</layer-list>

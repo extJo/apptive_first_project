@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_third_listview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#282828"
+    tools:context="com.WhatsYourScore.apptive.apptive_score.Third_listview">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/admin_textview"
+        android:textColor="#E1E1E1"
+        android:textSize="18dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"/>
+
+</LinearLayout>

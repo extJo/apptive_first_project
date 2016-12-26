@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="120dp"
+        android:background="@drawable/list_boder"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:id="@+id/massage_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_color_reset_button"/>
+
+            <TextView
+                android:id="@+id/massage_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="리셋 하시겠습니까?"
+                android:textColor="#e2e2e2e2"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/reset_yes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/list_boder"
+                android:gravity="center"
+                android:onClick="true"
+                android:text="네"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/reset_no"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/list_boder"
+                android:gravity="center"
+                android:onClick="true"
+                android:text="아니요"
+                android:textSize="18dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

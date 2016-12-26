@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_final_third_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_black"
+    tools:context="com.WhatsYourScore.apptive.apptive_score.Final_third_fragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="6.5">
+        <ListView
+            android:id="@+id/final_third_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#FFA500"
+            android:dividerHeight="2dp"
+            android:scrollbars="none"/>
+
+    </LinearLayout>
+</RelativeLayout>

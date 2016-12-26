@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notice"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#282828"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    tools:context="com.WhatsYourScore.apptive.apptive_score.Setting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#222222"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/setting_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#222222"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_button_return"
+            android:onClick="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="설정"
+            android:textColor="#E2E2E2"
+            android:textSize="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/setting_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/border"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp"
+                android:weightSum="10"
+                android:onClick="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="left|center_vertical"
+                    android:text="Feedback"
+                    android:textColor="#E2E2E2"
+                    android:textSize="20dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_weight="2"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_setting_feedback"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_reset"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp"
+                android:weightSum="10"
+                android:onClick="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="left|center_vertical"
+                    android:text="Reset"
+                    android:textColor="#E2E2E2"
+                    android:textSize="20dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_weight="2"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_setting_reset"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_credit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp"
+                android:weightSum="10"
+                android:onClick="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="left|center_vertical"
+                    android:text="Credit"
+                    android:textColor="#E2E2E2"
+                    android:textSize="20dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_weight="2"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_everything_graduation_divide2_orange4_23"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_notice"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp"
+                android:weightSum="10"
+                android:onClick="true">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="left|center_vertical"
+                    android:text="Notice"
+                    android:textColor="#E2E2E2"
+                    android:textSize="20dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_weight="2"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_setting_notice"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+

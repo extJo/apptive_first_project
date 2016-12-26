@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_third"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#282828"
+    android:orientation="vertical"
+    tools:context="com.WhatsYourScore.apptive.apptive_score.Third">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#222222"
+        android:gravity="right"
+        android:orientation="horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:gravity="center"
+            android:text="입학 년도"
+            android:textColor="@color/white"
+            android:textSize="29dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="5"
+            android:gravity="center_horizontal"
+            android:text="입학 년도를  선택해주세요"
+            android:textColor="@color/white"
+            android:textSize="14dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="35"
+            android:background="@drawable/text_boder"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/admin_text"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/text_boder"
+                android:hint="선택"
+                android:paddingLeft="12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gray"
+                android:textSize="16dp"/>
+
+            <ListView
+                android:id="@+id/admin_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:scrollbarSize="3dp"
+                android:scrollbarThumbVertical="@drawable/custom_scroll_style">
+            </ListView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
