@@ -46,6 +46,7 @@
         <activity android:name=".Final_fourth_fragment" />
         <activity android:name=".Final_custom_titlebar" />
         <activity android:name=".Notice" />
+        <activity android:name=".Add_box"/>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
