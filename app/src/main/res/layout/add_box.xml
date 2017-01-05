@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:background="@drawable/list_boder"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/massage_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="추가 할 과목과 학점을 입력하세요"
+            android:textColor="#e2e2e2e2"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:id="@+id/add_sub"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="추가 할 과목명을 입력해주세요"
+            android:textSize="15dp"/>
+
+
+        <EditText
+            android:id="@+id/add_grade"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="추가 할 과목명의 학점을 입력 해 주세요"
+            android:textSize="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/add_yes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/list_boder"
+                android:gravity="center"
+                android:onClick="true"
+                android:padding="5dp"
+                android:text="추가"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/add_no"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/list_boder"
+                android:gravity="center"
+                android:onClick="true"
+                android:padding="5dp"
+                android:text="취소"
+                android:textSize="18dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+

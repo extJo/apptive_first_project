@@ -40,16 +40,21 @@ public class Final_fourth_fragment extends Fragment {
     listView = (ListView) view.findViewById(R.id.final_fourth_listview);
     helper4 = new MySQLiteOpenHelper4(getActivity(), "Sortdata4.db", null, 1); // etc라는 명을 가진 db파일를 생성
 
+
     SharedPreferences pref = getContext().getSharedPreferences("Preference", 0); //0: 읽고쓰고가 가능, MODE_WORLD_READABLE : 읽기공유, MODE_WORLD_WRITEABLE : 읽기공유
     String depart = pref.getString("과명칭", "error"); // 학과명
     String admission = pref.getString("입학", "error"); // 입학년도
     boolean dbcheck4 = pref.getBoolean("Fourth_DB", false);
     //db를 이용하여서 listview를 생성하는 코드 (추가적으로 닫고 다시 실행될때 불러올 코드)
 
+    final TextView majorText = (TextView) view.findViewById(R.id.major_name);
+    majorText.setText(depart);
+
+
     if (dbcheck4) {
       temp_temp4 = true; //db를 이용하여서 불러올거라는 뜻
       db4 = helper4.getReadableDatabase();
-      Cursor c = db4.query("Sortdata", null, null, null, null, null, null);
+      Cursor c = db4.query("Sortdata4", null, null, null, null, null, null);
       int item_num = 0;
       while (c.moveToNext()) { //db의 id를 하나씩 이동하면서 list를 추가합니다
         String subject = c.getString(c.getColumnIndex("Subject"));
@@ -69,24 +74,31 @@ public class Final_fourth_fragment extends Fragment {
     final Button add_delete = (Button) view.findViewById(R.id.add_delete_button);
     final Button add = (Button) view.findViewById(R.id.etc_add_button);
     final Button delete = (Button) view.findViewById(R.id.etc_delete_button);
-    final TextView major = (TextView) view.findViewById(R.id.major_name);
+    final boolean[] button_flag = {true};
 
-    add_delete.setOnClickListener(new View.OnClickListener() {
-      @Override
+
+    View.OnClickListener myOnlyhandler = new View.OnClickListener() {
       public void onClick(View v) {
-
-        major.setVisibility(View.INVISIBLE);
-        add.setVisibility(View.VISIBLE);
-        delete.setVisibility(View.VISIBLE);
+        if (button_flag[0]) {
+          button_flag[0] = false;
+          majorText.setVisibility(View.INVISIBLE);
+          add.setVisibility(View.VISIBLE);
+          delete.setVisibility(View.VISIBLE);
+        } else {
+          button_flag[0] = true;
+          majorText.setVisibility(View.VISIBLE);
+          add.setVisibility(View.INVISIBLE);
+          delete.setVisibility(View.INVISIBLE);
+        }
 
       }
-    });
+    };
+
+    add_delete.setOnClickListener(myOnlyhandler);
+
 
     return view;
   }
-
-
-
 
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////db부분
@@ -94,6 +106,7 @@ public class Final_fourth_fragment extends Fragment {
   //  Id        Depart        Subject_div       Subject      Grade        Check_num
   // Depart : 과명칭, suject_div : 전공기초와 같은 전공 분류, Subject : 과목명 Grade: 과목에 대한 학점(1,2,3) check_num :버튼 on1, off0
   // 순으로 테이블 추가
+
   public void insert(String depart, String subject_div, String subject, String grade, int check) {
     // 쓰기 권한인 DB 객체를 얻어온다.
     db4 = helper4.getWritableDatabase();
@@ -124,7 +137,7 @@ public class Final_fourth_fragment extends Fragment {
   public void delete(String depart) {
     db4 = helper4.getWritableDatabase();
     db4.delete("Sortdata4", "Depart=?", new String[]{depart});
-    Log.i("db", depart + " 정상적으로 삭제 되었습니다.");
+    Log.i("db4", depart + " 정상적으로 삭제 되었습니다.");
   }
 
   public void select() {
@@ -140,8 +153,8 @@ public class Final_fourth_fragment extends Fragment {
       String grade = c.getString(c.getColumnIndex("Grade"));
       int check = c.getInt(c.getColumnIndex("Check_num"));
 
-      Log.i("db", "id: " + _id + ", Depart: " + depart + ", Subject_div: " + subject_div + ", Subject: " + subject
-              + ", Grade: " + grade + ", Check: " + check);
+      Log.i("db4", "id: " + _id + ", Depart: " + depart + ", Subject_div: " + subject_div + ", Subject: " + subject
+          + ", Grade: " + grade + ", Check: " + check);
     }
   }
 }
