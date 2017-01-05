@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -63,6 +65,22 @@ public class Final_fourth_fragment extends Fragment {
       adapter = new Final_fourth_ListViewAdapter(getActivity().getApplicationContext(), arrayList);
       listView.setAdapter(adapter);
     }
+
+    final Button add_delete = (Button) view.findViewById(R.id.add_delete_button);
+    final Button add = (Button) view.findViewById(R.id.etc_add_button);
+    final Button delete = (Button) view.findViewById(R.id.etc_delete_button);
+    final TextView major = (TextView) view.findViewById(R.id.major_name);
+
+    add_delete.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        major.setVisibility(View.INVISIBLE);
+        add.setVisibility(View.VISIBLE);
+        delete.setVisibility(View.VISIBLE);
+
+      }
+    });
+
     return view;
   }
 
