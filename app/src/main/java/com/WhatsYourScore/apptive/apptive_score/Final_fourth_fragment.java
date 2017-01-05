@@ -74,6 +74,7 @@ public class Final_fourth_fragment extends Fragment {
     add_delete.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+
         major.setVisibility(View.INVISIBLE);
         add.setVisibility(View.VISIBLE);
         delete.setVisibility(View.VISIBLE);
