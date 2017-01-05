@@ -15,7 +15,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="16dp"
-        android:layout_weight="8.5">
+        android:layout_weight="9.4">
 
         <ListView
             android:id="@+id/final_fourth_listview"
@@ -27,113 +27,39 @@
 
     </LinearLayout>
 
-    <FrameLayout
+
+    <LinearLayout
+        android:id="@+id/major_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:orientation="horizontal">
+        android:layout_weight="0.6"
+        android:orientation="horizontal"
+        android:weightSum="4">
 
-        <LinearLayout
-            android:id="@+id/major_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="8">
-
-                <TextView
-                    android:id="@+id/major_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Major"
-                    android:textColor="@color/white"
-                    android:textSize="25dp"
-                    android:visibility="visible"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center">
-
-                        <Button
-                            android:id="@+id/etc_add_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/button_corner"
-                            android:visibility="invisible"
-                            android:text="추가"
-                            android:textSize="20dp"
-                            android:textColor="@color/white"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center">
-
-                        <Button
-                            android:id="@+id/etc_delete_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/button_corner"
-                            android:visibility="invisible"
-                            android:text="삭제"
-                            android:textSize="20dp"
-                            android:textColor="@color/white"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"/>
-
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-            </FrameLayout>
-
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center">
-
-                <ToggleButton
-                    android:id="@+id/add_delete_button"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:background="@drawable/button_corner"
-                    android:textOn=""
-                    android:textOff=""/>
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+        <ImageButton
+            android:id="@+id/etc_add_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/etc_plus"
+            android:background="#000000"
+            android:scaleType="fitCenter"
+            android:padding="5dp"/>
+        <ImageButton
+            android:id="@+id/etc_delete_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/etc_delete"
+            android:background="#000000"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+    </LinearLayout>
 
 
-        </LinearLayout>
-
-    </FrameLayout>
 </LinearLayout>

@@ -16,14 +16,15 @@
         android:weightSum="5">
 
         <TextView
-            android:id="@+id/massage_text"
+            android:id="@+id/add_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="5dp"
-            android:text="추가 할 과목과 학점을 입력하세요"
-            android:textColor="#e2e2e2e2"
+            android:text="과목명과 학점을 입력하세요"
+            android:textColor="@color/white"
+            android:textColorHint="#e2e2e2e2"
             android:textSize="18dp"/>
 
         <EditText
@@ -32,8 +33,12 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="추가 할 과목명을 입력해주세요"
-            android:textSize="15dp"/>
+            android:hint="과목명을 입력해주세요"
+            android:textColor="@color/white"
+            android:textColorHint="#e2e2e2e2"
+            android:background="@drawable/edit_bottom"
+            android:textSize="15dp"
+            android:layout_margin="5dp"/>
 
 
         <EditText
@@ -42,8 +47,14 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="추가 할 과목명의 학점을 입력 해 주세요"
-            android:textSize="15dp"/>
+            android:hint="학점을 입력 해 주세요"
+            android:textColor="@color/white"
+            android:textColorHint="#e2e2e2e2"
+            android:background="@drawable/edit_bottom"
+            android:textSize="15dp"
+            android:layout_margin="5dp"
+            android:inputType="number"
+            android:digits="0123456789"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +72,7 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <Button
+            <TextView
                 android:id="@+id/add_yes"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -72,9 +83,10 @@
                 android:onClick="true"
                 android:padding="5dp"
                 android:text="추가"
-                android:textSize="18dp"/>
+                android:textSize="18dp"
+                android:textColor="@color/white"/>
 
-            <Button
+            <TextView
                 android:id="@+id/add_no"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -85,7 +97,8 @@
                 android:onClick="true"
                 android:padding="5dp"
                 android:text="취소"
-                android:textSize="18dp"/>
+                android:textSize="18dp"
+                android:textColor="@color/white"/>
 
 
         </LinearLayout>

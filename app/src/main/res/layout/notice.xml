@@ -21,17 +21,6 @@
             android:orientation="horizontal"
             android:weightSum="10">
 
-            <ImageButton
-                android:id="@+id/notice_setting"
-                android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="#222222"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_button_setting"/>
 
         </LinearLayout>
 

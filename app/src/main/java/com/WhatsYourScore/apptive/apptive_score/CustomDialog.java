@@ -22,7 +22,6 @@ public class CustomDialog extends Dialog {
     private TextView mRightButton;
     private String mTitle;
     private Drawable mContent;
-
     private View.OnClickListener mLeftClickListener;
     private View.OnClickListener mRightClickListener;
 
