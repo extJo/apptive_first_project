@@ -1,6 +1,7 @@
 package com.WhatsYourScore.apptive.apptive_score;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -24,12 +25,12 @@ public class Final_fourth_fragment extends Fragment {
   static MySQLiteOpenHelper4 helper4; // db의 table
   View view; // view
   // listview관련 변수들
-  String[] items = new String[100]; //listview의 과목명
-  String[] items_grade = new String[100]; //listview의 학점
-  int[] items_button = new int[100];  // listview의 togglebutton
-  ArrayList<Subject> arrayList = new ArrayList<Subject>(); // list들의 집합
-  Final_fourth_ListViewAdapter adapter; // list들의 집합들의 adapter
-  ListView listView;
+  static String[] items_fourth = new String[100]; //listview의 과목명
+  static String[] items_grade_fourth = new String[100]; //listview의 학점
+  static int[] items_button_fourth = new int[100];  // listview의 togglebutton
+  static ArrayList<Subject> arrayList = new ArrayList<Subject>(); // list들의 집합
+  static Final_fourth_ListViewAdapter adapter; // list들의 집합들의 adapter
+  static ListView listView_fourth;
   static boolean temp_temp4 = false;
 
 
@@ -37,7 +38,7 @@ public class Final_fourth_fragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     view = inflater.inflate(R.layout.activity_final_fourth_fragment, container, false);
-    listView = (ListView) view.findViewById(R.id.final_fourth_listview);
+    listView_fourth = (ListView) view.findViewById(R.id.final_fourth_listview);
     helper4 = new MySQLiteOpenHelper4(getActivity(), "Sortdata4.db", null, 1); // etc라는 명을 가진 db파일를 생성
 
 
@@ -60,15 +61,15 @@ public class Final_fourth_fragment extends Fragment {
         String subject = c.getString(c.getColumnIndex("Subject"));
         String grade = c.getString(c.getColumnIndex("Grade"));
         int check = c.getInt(c.getColumnIndex("Check_num"));
-        items[item_num] = subject;    // 교과목명
-        items_grade[item_num] = grade; //  학점
-        items_button[item_num] = check;
-        Subject sj = new Subject(items[item_num], items_grade[item_num], items_button[item_num]);
+        items_fourth[item_num] = subject;    // 교과목명
+        items_grade_fourth[item_num] = grade; //  학점
+        items_button_fourth[item_num] = check;
+        Subject sj = new Subject(items_fourth[item_num], items_grade_fourth[item_num], items_button_fourth[item_num]);
         arrayList.add(sj);
         item_num++;
       }
       adapter = new Final_fourth_ListViewAdapter(getActivity().getApplicationContext(), arrayList);
-      listView.setAdapter(adapter);
+      listView_fourth.setAdapter(adapter);
     }
 
     final Button add_delete = (Button) view.findViewById(R.id.add_delete_button);
@@ -93,6 +94,13 @@ public class Final_fourth_fragment extends Fragment {
 
       }
     };
+    add.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(getActivity(), Add_box.class);
+        startActivity(intent);
+      }
+    });
 
     add_delete.setOnClickListener(myOnlyhandler);
 
