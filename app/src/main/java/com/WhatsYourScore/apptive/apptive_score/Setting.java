@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import static com.WhatsYourScore.apptive.apptive_score.Final_first_fragment.db;
+import static com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment.db4;
 import static com.WhatsYourScore.apptive.apptive_score.Final_second_fragment.db2;
 import static com.WhatsYourScore.apptive.apptive_score.Final_third_fragment.db3;
 
@@ -43,7 +44,7 @@ public class Setting extends BaseActivity {
             db.execSQL("delete from " + "Sortdata");
             db2.execSQL("delete from " + "Sortdata2");
             db3.execSQL("delete from " + "Sortdata3");
-            //db.execSQL("delte from " + "Sortdata");   // 4번째뷰 db를 지울때 쓸것!
+            db4.execSQL("delte from " + "Sortdata4");   // 4번째뷰 db를 지울때 쓸것!
             Intent intent = new Intent(Setting.this, Third.class);
             startActivity(intent);
 
