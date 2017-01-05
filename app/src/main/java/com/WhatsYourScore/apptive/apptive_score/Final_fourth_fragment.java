@@ -31,41 +31,43 @@ public class Final_fourth_fragment extends Fragment {
   static boolean temp_temp4 = false;
 
 
-
   @Nullable
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     view = inflater.inflate(R.layout.activity_final_fourth_fragment, container, false);
     listView = (ListView) view.findViewById(R.id.final_fourth_listview);
-
     helper4 = new MySQLiteOpenHelper4(getActivity(), "Sortdata4.db", null, 1); // etc라는 명을 가진 db파일를 생성
-
 
     SharedPreferences pref = getContext().getSharedPreferences("Preference", 0); //0: 읽고쓰고가 가능, MODE_WORLD_READABLE : 읽기공유, MODE_WORLD_WRITEABLE : 읽기공유
     String depart = pref.getString("과명칭", "error"); // 학과명
     String admission = pref.getString("입학", "error"); // 입학년도
-
+    boolean dbcheck4 = pref.getBoolean("Fourth_DB", false);
     //db를 이용하여서 listview를 생성하는 코드 (추가적으로 닫고 다시 실행될때 불러올 코드)
-    db4 = helper4.getReadableDatabase();
-    Cursor c = db4.query("Sortdata4", null, null, null, null, null, null);
-    int item_num = 0;
-    while (c.moveToNext()) { //db의 id를 하나씩 이동하면서 list를 추가합니다
-      String subject = c.getString(c.getColumnIndex("Subject"));
-      String grade = c.getString(c.getColumnIndex("Grade"));
-      int check = c.getInt(c.getColumnIndex("Check_num"));
-      items[item_num] = subject;    // 교과목명
-      items_grade[item_num] = grade; //  학점
-      items_button[item_num] = check;
-      Subject sj = new Subject(items[item_num], items_grade[item_num], items_button[item_num]);
-      arrayList.add(sj);
-      item_num++;
+
+    if (dbcheck4) {
+      temp_temp4 = true; //db를 이용하여서 불러올거라는 뜻
+      db4 = helper4.getReadableDatabase();
+      Cursor c = db4.query("Sortdata", null, null, null, null, null, null);
+      int item_num = 0;
+      while (c.moveToNext()) { //db의 id를 하나씩 이동하면서 list를 추가합니다
+        String subject = c.getString(c.getColumnIndex("Subject"));
+        String grade = c.getString(c.getColumnIndex("Grade"));
+        int check = c.getInt(c.getColumnIndex("Check_num"));
+        items[item_num] = subject;    // 교과목명
+        items_grade[item_num] = grade; //  학점
+        items_button[item_num] = check;
+        Subject sj = new Subject(items[item_num], items_grade[item_num], items_button[item_num]);
+        arrayList.add(sj);
+        item_num++;
+      }
+      adapter = new Final_fourth_ListViewAdapter(getActivity().getApplicationContext(), arrayList);
+      listView.setAdapter(adapter);
     }
-    adapter = new Final_fourth_ListViewAdapter(getActivity().getApplicationContext(), arrayList);
-    listView.setAdapter(adapter);
-
     return view;
-
   }
+
+
+
 
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////db부분
@@ -120,7 +122,7 @@ public class Final_fourth_fragment extends Fragment {
       int check = c.getInt(c.getColumnIndex("Check_num"));
 
       Log.i("db", "id: " + _id + ", Depart: " + depart + ", Subject_div: " + subject_div + ", Subject: " + subject
-          + ", Grade: " + grade + ", Check: " + check);
+              + ", Grade: " + grade + ", Check: " + check);
     }
   }
 }
