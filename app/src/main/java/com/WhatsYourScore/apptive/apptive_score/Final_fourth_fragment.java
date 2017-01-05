@@ -49,7 +49,7 @@ public class Final_fourth_fragment extends Fragment {
     if (dbcheck4) {
       temp_temp4 = true; //db를 이용하여서 불러올거라는 뜻
       db4 = helper4.getReadableDatabase();
-      Cursor c = db4.query("Sortdata", null, null, null, null, null, null);
+      Cursor c = db4.query("Sortdata4", null, null, null, null, null, null);
       int item_num = 0;
       while (c.moveToNext()) { //db의 id를 하나씩 이동하면서 list를 추가합니다
         String subject = c.getString(c.getColumnIndex("Subject"));
