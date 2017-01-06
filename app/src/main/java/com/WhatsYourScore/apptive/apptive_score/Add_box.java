@@ -2,21 +2,11 @@ package com.WhatsYourScore.apptive.apptive_score;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import static com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment.adapter;
-import static com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment.arrayList;
-import static com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment.items_button_fourth;
-import static com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment.items_fourth;
-import static com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment.items_grade_fourth;
-import static com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment.listView_fourth;
 
 /**
  * Created by kgm13 on 2017-01-05.
@@ -49,7 +39,6 @@ public class Add_box extends Dialog {
       lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
       lpWindow.dimAmount = 0.8f;
       getWindow().setAttributes(lpWindow);
-
       setContentView(R.layout.activity_add_box);
 
       mTitleView = (TextView) findViewById(R.id.add_text);
