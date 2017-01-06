@@ -1,4 +1,5 @@
 package com.WhatsYourScore.apptive.apptive_score;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -47,10 +49,16 @@ public class Final_fourth_fragment extends Fragment {
     private Context fourth_context;
     boolean dbcheck4 = false;
 
+    Fragment frg = null;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_final_fourth_fragment, container, false);
+        LinearLayout view2 = (LinearLayout)view.findViewById(R.id.fourth_fragment);
+        LinearLayout view3 = (LinearLayout)view.findViewById(R.id.fourth_fragment_delete);
+        view2.setVisibility(View.VISIBLE);
+        view3.setVisibility(View.GONE);
         listView = (ListView) view.findViewById(R.id.final_fourth_listview);
         listView_delete = (ListView) view.findViewById(R.id.final_fourth_listview_delete_page);
         helper4 = new MySQLiteOpenHelper4(getActivity(), "Sortdata4.db", null, 1); // etc라는 명을 가진 db파일를 생성
@@ -98,42 +106,46 @@ public class Final_fourth_fragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                view.findViewById(R.id.final_fourth_listview).setVisibility(View.INVISIBLE);
-                {
 
-                    //4번째 DB에 있는 내용을 listview로 불러오는 과정(delete뷰에 맞는 양식으로 들고옴)
-                     if (dbcheck4){
-                         System.out.println("====================진입====================");
-                        db4 = helper4.getReadableDatabase();
-                        Cursor c = db4.query("Sortdata4", null, null, null, null, null, null);
-                        int item_num = 0;
-                        c.moveToFirst(); // db의 포인터를 맨 앞으로 바꿔줌 // 이미 db를 읽어 와서 맨 뒤를 가리키켰을때 다시 앞으로 돌려주는과정
-                        do{
-                            String subject = c.getString(c.getColumnIndex("Subject"));
-                            String grade = c.getString(c.getColumnIndex("Grade"));
-                            int check = c.getInt(c.getColumnIndex("Check_num"));
-                            items_choose_button_fourth[item_num] = 0;
-                            items_fourth_delete[item_num] = subject;    // 교과목명
-                            items_grade_fourth_delete[item_num] = grade; //  학점
-                            items_button_fourth_delete[item_num] = check;
-                            Subject sj = new Subject(items_choose_button_fourth[item_num], items_fourth_delete[item_num], items_grade_fourth_delete[item_num], items_button_fourth_delete[item_num]);
-                            arrayList_delete.add(sj);
-                            item_num++;
-                        }while (c.moveToNext());
-                         adapter_delete = new Final_fourth_ListViewAdapter_delete(getActivity().getApplicationContext(), arrayList_delete);
-                         listView_delete.setAdapter(adapter_delete);
-                         adapter_delete.notifyDataSetChanged();
-                     }
+                //4번째 DB에 있는 내용을 listview로 불러오는 과정(delete뷰에 맞는 양식으로 들고옴)
+                if (dbcheck4) {
+                    System.out.println("====================진입====================");
+                    db4 = helper4.getReadableDatabase();
+                    Cursor c = db4.query("Sortdata4", null, null, null, null, null, null);
+                    int item_num = 0;
+                    c.moveToFirst(); // db의 포인터를 맨 앞으로 바꿔줌 // 이미 db를 읽어 와서 맨 뒤를 가리키켰을때 다시 앞으로 돌려주는과정
+                    do {
+                        String subject = c.getString(c.getColumnIndex("Subject"));
+                        String grade = c.getString(c.getColumnIndex("Grade"));
+                        int check = c.getInt(c.getColumnIndex("Check_num"));
+                        items_choose_button_fourth[item_num] = 0;
+                        items_fourth_delete[item_num] = subject;    // 교과목명
+                        items_grade_fourth_delete[item_num] = grade; //  학점
+                        items_button_fourth_delete[item_num] = check;
+                        Subject sj = new Subject(items_choose_button_fourth[item_num], items_fourth_delete[item_num], items_grade_fourth_delete[item_num], items_button_fourth_delete[item_num]);
+                        arrayList_delete.add(sj);
+                        item_num++;
+                    } while (c.moveToNext());
+                    adapter_delete = new Final_fourth_ListViewAdapter_delete(getActivity().getApplicationContext(), arrayList_delete);
+                    listView_delete.setAdapter(adapter_delete);
+                    adapter_delete.notifyDataSetChanged();
+                    LinearLayout view2 = (LinearLayout)view.findViewById(R.id.fourth_fragment);
+                    LinearLayout view3 = (LinearLayout)view.findViewById(R.id.fourth_fragment_delete);
+                    view2.setVisibility(View.GONE);
+                    view3.setVisibility(View.VISIBLE);
                 }
 
-                // dialog로 리스트가 없음을 표시 ... 어째 해야하노?
+//                // dialog로 리스트가 없음을 표시 ... 어째 해야하노?
+//                frg = getFragmentManager().findFragmentByTag("my_Fragment");
+//                final FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                //final FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.detach(frg);
+//                ft.attach(frg);
+//                ft.commit();
 
 
-                view.findViewById(R.id.final_fourth_listview_delete_page).setVisibility(View.VISIBLE);
             }
         });
-
-
         return view;
     }
 
