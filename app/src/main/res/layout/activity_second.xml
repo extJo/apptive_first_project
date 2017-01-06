@@ -16,16 +16,27 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="부산대 이수과목입니다"
+                android:layout_height="60dp"
+                android:text="부산대 이수과목"
                 android:textColor="@color/white"
                 android:textSize="40dp"
                 android:textAlignment="center"
                 android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="입니다"
+                android:textColor="@color/white"
+                android:textSize="35dp"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
         </LinearLayout>
 
     </LinearLayout>
