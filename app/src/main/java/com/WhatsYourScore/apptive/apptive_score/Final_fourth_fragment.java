@@ -117,6 +117,9 @@ public class Final_fourth_fragment extends Fragment {
       editor.putBoolean("Fourth_DB", true);
       editor.commit();
       insert(depart, "0", subject, grade, 0);
+      System.out.println("========================================subject======================================== " + subject);
+      System.out.println("========================================grade========================================" + grade);
+      System.out.println("========================================진입========================================");
       adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
       listView.setAdapter(adapter);
 
@@ -153,7 +156,7 @@ public class Final_fourth_fragment extends Fragment {
     values.put("Grade", grade);
     values.put("Check_num", check); //초기값은 0
 
-    db4.insert("etc", null, values);
+    db4.insert("Sortdata4", null, values);
     // tip : 마우스를 db.insert에 올려보면 매개변수가 어떤 것이 와야 하는지 알 수 있다.
   }
 
