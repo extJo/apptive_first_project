@@ -15,9 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-
-
 // 그 외 부분
 public class Final_fourth_fragment extends Fragment {
   // DB관련 변수들(sqlite를 썼습니다)
@@ -103,6 +102,12 @@ public class Final_fourth_fragment extends Fragment {
 
       String subject = Edit_subject.getText().toString();
       String grade = Edit_grade.getText().toString();
+
+      double temp = Double.parseDouble(grade);
+      DecimalFormat temp_decimal = new DecimalFormat("#.#");
+      temp_decimal.format(temp);
+      grade = String.valueOf(temp);
+
 
       items_fourth[item_num] = subject;    // 교과목명
       items_grade_fourth[item_num] = grade; //  학점
