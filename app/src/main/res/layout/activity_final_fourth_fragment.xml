@@ -2,13 +2,93 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_final_fourth_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_black"
     tools:context="com.WhatsYourScore.apptive.apptive_score.Final_fourth_fragment">
+    <LinearLayout
+        android:id="@+id/fourth_fragment_delete"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_black"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="9">
+
+            <ListView
+                android:id="@+id/final_fourth_listview_delete_page"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#FFA500"
+                android:dividerHeight="2dp"
+                android:scrollbars="none"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/major_layout_delete_page"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"/>
+
+            <RelativeLayout
+                android:id="@+id/etc_add_button_delete_page"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/left_top_corner"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="14dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plusminus_29"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/etc_delete_button_delete_page"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#222222"
+                    android:paddingBottom="20.5dp"
+                    android:paddingLeft="20.5dp"
+                    android:paddingRight="20.5dp"
+                    android:paddingTop="21.5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plusminus_30"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/activity_final_fourth_fragment"
+        android:id="@+id/fourth_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/light_black"
@@ -90,85 +170,6 @@
     <!-- 밑은 delete page-->
 
 
-    <LinearLayout
-        android:id="@+id/activity_final_fourth_fragment_delete_page"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/light_black"
-        android:orientation="vertical"
-        android:visibility="invisible">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="16dp"
-            android:layout_weight="9">
-
-            <ListView
-                android:id="@+id/final_fourth_listview_delete_page"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#FFA500"
-                android:dividerHeight="2dp"
-                android:scrollbars="none"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/major_layout_delete_page"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"/>
-
-            <RelativeLayout
-                android:id="@+id/etc_add_button_delete_page"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/left_top_corner"
-                    android:paddingBottom="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
-                    android:paddingTop="14dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_plusminus_29"/>
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/etc_delete_button_delete_page"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#222222"
-                    android:paddingBottom="20.5dp"
-                    android:paddingLeft="20.5dp"
-                    android:paddingRight="20.5dp"
-                    android:paddingTop="21.5dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_plusminus_30"/>
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 
 

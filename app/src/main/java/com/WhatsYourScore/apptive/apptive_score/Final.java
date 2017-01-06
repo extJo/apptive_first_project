@@ -228,21 +228,26 @@ public class Final extends BaseActivity {
     String string1;
     String string2;
     String string3;
+    String string4;
     String string;
 
     string = sheet.getCell(7, num).getContents();
     string1 = sheet.getCell(8, num).getContents();
     string2 = sheet.getCell(9, num).getContents();
     string3 = sheet.getCell(10, num).getContents();
+    string4 = sheet.getCell(11, num).getContents();
 
     TextView textView_total = (TextView) findViewById(R.id.final_grade);
     TextView textView1 = (TextView) findViewById(R.id.final_grade1);
     TextView textView2 = (TextView) findViewById(R.id.final_grade2);
     TextView textView3 = (TextView) findViewById(R.id.final_grade3);
+    TextView textView4 = (TextView) findViewById(R.id.final_grade4);
+
     textView_total.setText(string);
     textView1.setText(string1);
     textView2.setText(string2);
     textView3.setText(string3);
+    textView4.setText(string4);
   }
 
 
