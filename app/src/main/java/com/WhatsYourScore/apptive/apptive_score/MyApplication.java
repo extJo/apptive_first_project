@@ -11,10 +11,10 @@ import com.tsengvn.typekit.Typekit;
 
 // application class는 클래스간의 공통된 data를 공유하기 위한 class입니다
 public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Typekit.getInstance()
-                .addNormal(Typekit.createFromAsset(this, "Spoqa Han Sans Thin_win_subset.ttf"));
-    }
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    Typekit.getInstance()
+        .addNormal(Typekit.createFromAsset(this, "Spoqa Han Sans Thin_win_subset.ttf"));
+  }
 }

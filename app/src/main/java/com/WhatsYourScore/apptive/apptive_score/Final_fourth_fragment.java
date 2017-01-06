@@ -8,17 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -27,7 +22,6 @@ public class Final_fourth_fragment extends Fragment {
   // DB관련 변수들(sqlite를 썼습니다)
   static SQLiteDatabase db4; // sqlite를 사용한 db
   static MySQLiteOpenHelper4 helper4; // db의 table
-  View view; // view
   // listview관련 변수들
   static String[] items_fourth = new String[100]; //listview의 과목명
   static String[] items_grade_fourth = new String[100]; //listview의 학점
@@ -36,10 +30,47 @@ public class Final_fourth_fragment extends Fragment {
   static Final_fourth_ListViewAdapter adapter; // list들의 집합들의 adapter
   static ListView listView_fourth;
   static boolean temp_temp4 = false;
-  private Add_box mAdd_box;
+  View view; // view
   int item_num = 0;
+  private Add_box mAdd_box;
   private Context fourth_context;
+  // custom dialog 의 왼쪽버튼 setting
+  private View.OnClickListener leftListener = new View.OnClickListener() {
+    public void onClick(View v) {
 
+      // view 에 민감하므로 잘 봐야함. 현재 뷰에 대한 EditText가 아니므로 Add_box의 EditText를 가지고와야함
+      EditText Edit_subject = (EditText) mAdd_box.findViewById(R.id.add_sub);
+      EditText Edit_grade = (EditText) mAdd_box.findViewById(R.id.add_grade);
+
+      String subject = Edit_subject.getText().toString();
+      String grade = Edit_grade.getText().toString();
+
+      items_fourth[item_num] = subject;    // 교과목명
+      items_grade_fourth[item_num] = grade; //  학점
+      items_button_fourth[item_num] = 0;
+      Subject sj = new Subject(items_fourth[item_num], items_grade_fourth[item_num], items_button_fourth[item_num]);
+      arrayList.add(sj);
+      item_num++;
+
+      adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
+      listView_fourth.setAdapter(adapter);
+
+      mAdd_box.dismiss();
+    }
+  };
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////db부분
+  //db 테이블에 insert
+  //  Id        Depart        Subject_div       Subject      Grade        Check_num
+  // Depart : 과명칭, suject_div : 전공기초와 같은 전공 분류, Subject : 과목명 Grade: 과목에 대한 학점(1,2,3) check_num :버튼 on1, off0
+  // 순으로 테이블 추가
+  // custom dialog의 오른쪽 버튼을 setting
+  private View.OnClickListener rightListener = new View.OnClickListener() {
+    public void onClick(View v) {
+      mAdd_box.dismiss();
+    }
+  };
 
   @Nullable
   @Override
@@ -82,7 +113,7 @@ public class Final_fourth_fragment extends Fragment {
     add.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        mAdd_box = new Add_box(v.getContext(),leftListener, rightListener);
+        mAdd_box = new Add_box(v.getContext(), leftListener, rightListener);
         mAdd_box.show();
 
       }
@@ -91,16 +122,8 @@ public class Final_fourth_fragment extends Fragment {
     // delete 버튼에 대한 click listener
 
 
-
     return view;
   }
-
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////////db부분
-  //db 테이블에 insert
-  //  Id        Depart        Subject_div       Subject      Grade        Check_num
-  // Depart : 과명칭, suject_div : 전공기초와 같은 전공 분류, Subject : 과목명 Grade: 과목에 대한 학점(1,2,3) check_num :버튼 on1, off0
-  // 순으로 테이블 추가
 
   public void insert(String depart, String subject_div, String subject, String grade, int check) {
     // 쓰기 권한인 DB 객체를 얻어온다.
@@ -132,7 +155,6 @@ public class Final_fourth_fragment extends Fragment {
   public void delete(String depart) {
     db4 = helper4.getWritableDatabase();
     db4.delete("Sortdata4", "Depart=?", new String[]{depart});
-    Log.i("db4", depart + " 정상적으로 삭제 되었습니다.");
   }
 
   public void select() {
@@ -148,42 +170,8 @@ public class Final_fourth_fragment extends Fragment {
       String grade = c.getString(c.getColumnIndex("Grade"));
       int check = c.getInt(c.getColumnIndex("Check_num"));
 
-      Log.i("db4", "id: " + _id + ", Depart: " + depart + ", Subject_div: " + subject_div + ", Subject: " + subject
-          + ", Grade: " + grade + ", Check: " + check);
     }
   }
-
-  // custom dialog 의 왼쪽버튼 setting
-  private View.OnClickListener leftListener = new View.OnClickListener() {
-    public void onClick(View v) {
-
-      // view 에 민감하므로 잘 봐야함. 현재 뷰에 대한 EditText가 아니므로 Add_box의 EditText를 가지고와야함
-      EditText Edit_subject = (EditText) mAdd_box.findViewById(R.id.add_sub);
-      EditText Edit_grade = (EditText) mAdd_box.findViewById(R.id.add_grade);
-
-      String subject = Edit_subject.getText().toString();
-      String grade = Edit_grade.getText().toString();
-
-      items_fourth[item_num] = subject;    // 교과목명
-      items_grade_fourth[item_num] = grade; //  학점
-      items_button_fourth[item_num] = 0;
-      Subject sj = new Subject(items_fourth[item_num], items_grade_fourth[item_num], items_button_fourth[item_num]);
-      arrayList.add(sj);
-      item_num++;
-
-      adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
-      listView_fourth.setAdapter(adapter);
-
-      mAdd_box.dismiss();
-    }
-  };
-
-  // custom dialog의 오른쪽 버튼을 setting
-  private View.OnClickListener rightListener = new View.OnClickListener() {
-    public void onClick(View v) {
-      mAdd_box.dismiss();
-    }
-  };
 
 
 }
