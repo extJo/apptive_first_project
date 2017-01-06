@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
@@ -103,6 +104,13 @@ public class Final_fourth_fragment extends Fragment {
 
       String subject = Edit_subject.getText().toString();
       String grade = Edit_grade.getText().toString();
+      
+      // 소수점 변환
+      double temp = Double.parseDouble(grade);
+      DecimalFormat temp_decimal = new DecimalFormat("#.#");
+      temp_decimal.format(temp);
+      grade = String.valueOf(temp);
+
 
       items_fourth[item_num] = subject;    // 교과목명
       items_grade_fourth[item_num] = grade; //  학점
