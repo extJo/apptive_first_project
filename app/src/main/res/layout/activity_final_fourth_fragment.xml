@@ -47,31 +47,41 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"/>
 
-            <ImageButton
-                android:id="@+id/etc_add_button"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/left_top_corner"
-                android:paddingBottom="12dp"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="14dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_plusminus_29"/>
+                android:layout_weight="1">
 
-            <ImageButton
-                android:id="@+id/etc_delete_button"
+                <ImageButton
+                    android:id="@+id/etc_add_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/left_top_corner"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="14dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plusminus_29"/>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#222222"
-                android:paddingBottom="20.5dp"
-                android:paddingLeft="20.5dp"
-                android:paddingRight="20.5dp"
-                android:paddingTop="21.5dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_plusminus_30"/>
+                android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/etc_delete_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#222222"
+                    android:paddingBottom="20.5dp"
+                    android:paddingLeft="20.5dp"
+                    android:paddingRight="20.5dp"
+                    android:paddingTop="21.5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plusminus_30"/>
+            </RelativeLayout>
+
 
         </LinearLayout>
 
@@ -120,31 +130,41 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"/>
 
-            <ImageButton
+            <RelativeLayout
                 android:id="@+id/etc_add_button_delete_page"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/left_top_corner"
-                android:paddingBottom="12dp"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="14dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_plusminus_29"/>
+                android:layout_weight="1">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/left_top_corner"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="14dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plusminus_29"/>
+            </RelativeLayout>
 
-            <ImageButton
+
+            <RelativeLayout
                 android:id="@+id/etc_delete_button_delete_page"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#222222"
-                android:paddingBottom="20.5dp"
-                android:paddingLeft="20.5dp"
-                android:paddingRight="20.5dp"
-                android:paddingTop="21.5dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_plusminus_30"/>
+                android:layout_weight="1">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#222222"
+                    android:paddingBottom="20.5dp"
+                    android:paddingLeft="20.5dp"
+                    android:paddingRight="20.5dp"
+                    android:paddingTop="21.5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plusminus_30"/>
+            </RelativeLayout>
+
 
         </LinearLayout>
 
