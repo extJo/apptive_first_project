@@ -17,6 +17,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
 // 그 외 부분
 public class Final_fourth_fragment extends Fragment {
   // DB관련 변수들(sqlite를 썼습니다)
