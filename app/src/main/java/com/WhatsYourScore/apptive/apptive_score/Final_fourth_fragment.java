@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ public class Final_fourth_fragment extends Fragment {
   // DB관련 변수들(sqlite를 썼습니다)
   static SQLiteDatabase db4; // sqlite를 사용한 db
   static MySQLiteOpenHelper4 helper4; // db의 table
-  View view; // view
   // listview관련 변수들
   String[] items_fourth = new String[100]; //listview의 과목명
   String[] items_grade_fourth = new String[100]; //listview의 학점
@@ -32,8 +30,9 @@ public class Final_fourth_fragment extends Fragment {
   Final_fourth_ListViewAdapter adapter; // list들의 집합들의 adapter
   ListView listView;
   static boolean temp_temp4 = false;
-  private Add_box mAdd_box;
+  View view; // view
   int item_num = 0;
+  private Add_box mAdd_box;
   private Context fourth_context;
 
 
@@ -75,20 +74,21 @@ public class Final_fourth_fragment extends Fragment {
     final ImageButton delete = (ImageButton) view.findViewById(R.id.etc_delete_button);
 
 
-    // 추가 버튼에 대한 click listener
+
     add.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        mAdd_box = new Add_box(v.getContext(),leftListener, rightListener);
+        mAdd_box = new Add_box(v.getContext(), leftListener, rightListener);
         mAdd_box.show();
       }
     });
 
-
+    // delete 버튼에 대한 click listener
 
 
     return view;
   }
+
 
 
 
@@ -117,9 +117,6 @@ public class Final_fourth_fragment extends Fragment {
       editor.putBoolean("Fourth_DB", true);
       editor.commit();
       insert(depart, "0", subject, grade, 0);
-      System.out.println("========================================subject======================================== " + subject);
-      System.out.println("========================================grade========================================" + grade);
-      System.out.println("========================================진입========================================");
       adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
       listView.setAdapter(adapter);
 
@@ -173,7 +170,6 @@ public class Final_fourth_fragment extends Fragment {
   public void delete(String depart) {
     db4 = helper4.getWritableDatabase();
     db4.delete("Sortdata4", "Depart=?", new String[]{depart});
-    Log.i("db4", depart + " 정상적으로 삭제 되었습니다.");
   }
 
   public void select() {
@@ -189,11 +185,8 @@ public class Final_fourth_fragment extends Fragment {
       String grade = c.getString(c.getColumnIndex("Grade"));
       int check = c.getInt(c.getColumnIndex("Check_num"));
 
-      Log.i("db4", "id: " + _id + ", Depart: " + depart + ", Subject_div: " + subject_div + ", Subject: " + subject
-          + ", Grade: " + grade + ", Check: " + check);
     }
   }
 
-
-
 }
+
