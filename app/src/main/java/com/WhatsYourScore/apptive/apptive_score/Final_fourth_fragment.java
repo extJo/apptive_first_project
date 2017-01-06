@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,7 +78,7 @@ public class Final_fourth_fragment extends Fragment {
     final ImageButton add = (ImageButton) view.findViewById(R.id.etc_add_button);
     final ImageButton delete = (ImageButton) view.findViewById(R.id.etc_delete_button);
 
-    // 추가 버튼에 대한 click listener
+    // add 버튼에 대한 click listener
     add.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -86,6 +88,7 @@ public class Final_fourth_fragment extends Fragment {
       }
     });
 
+    // delete 버튼에 대한 click listener
 
 
 
@@ -182,4 +185,6 @@ public class Final_fourth_fragment extends Fragment {
     }
   };
 
+
 }
+
