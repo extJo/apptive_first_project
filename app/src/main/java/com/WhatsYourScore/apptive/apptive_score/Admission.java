@@ -5,14 +5,14 @@ package com.WhatsYourScore.apptive.apptive_score;
  */
 
 public class Admission {
-    private String admin;
+  private String admin;
 
-    public Admission(String par_admin) {
-        admin = par_admin;
-    }
+  public Admission(String par_admin) {
+    admin = par_admin;
+  }
 
-    public String getAdmin() {
-        return this.admin;
-    }
+  public String getAdmin() {
+    return this.admin;
+  }
 
 }

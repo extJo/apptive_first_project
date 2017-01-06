@@ -30,33 +30,43 @@ public class Add_box extends Dialog {
     this.mRightClickListener = rightListener;
   }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
+<<<<<<< HEAD
       // 다이얼로그 외부 화면 흐리게 표현
       WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
       lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
       lpWindow.dimAmount = 0.8f;
       getWindow().setAttributes(lpWindow);
       setContentView(R.layout.activity_add_box);
+=======
+    // 다이얼로그 외부 화면 흐리게 표현
+    WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
+    lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+    lpWindow.dimAmount = 0.8f;
+    getWindow().setAttributes(lpWindow);
 
-      mTitleView = (TextView) findViewById(R.id.add_text);
-      mSubText = (EditText) findViewById(R.id.add_sub);
-      mGradeText = (EditText) findViewById(R.id.add_grade);
-      mLeftButton = (TextView) findViewById(R.id.add_yes); //기존의 textview
-      mRightButton = (TextView) findViewById(R.id.add_no);
+    setContentView(R.layout.activity_add_box);
+>>>>>>> refs/remotes/origin/master
+
+    mTitleView = (TextView) findViewById(R.id.add_text);
+    mSubText = (EditText) findViewById(R.id.add_sub);
+    mGradeText = (EditText) findViewById(R.id.add_grade);
+    mLeftButton = (TextView) findViewById(R.id.add_yes); //기존의 textview
+    mRightButton = (TextView) findViewById(R.id.add_no);
 
 
-      // 클릭 이벤트 셋팅
-      if (mLeftClickListener != null && mRightClickListener != null) {
-        mLeftButton.setOnClickListener(mLeftClickListener);
-        mRightButton.setOnClickListener(mRightClickListener);
-      } else if (mLeftClickListener != null
-          && mRightClickListener == null) {
-        mLeftButton.setOnClickListener(mLeftClickListener);
-      } else {
+    // 클릭 이벤트 셋팅
+    if (mLeftClickListener != null && mRightClickListener != null) {
+      mLeftButton.setOnClickListener(mLeftClickListener);
+      mRightButton.setOnClickListener(mRightClickListener);
+    } else if (mLeftClickListener != null
+        && mRightClickListener == null) {
+      mLeftButton.setOnClickListener(mLeftClickListener);
+    } else {
 
-      }
     }
+  }
 }

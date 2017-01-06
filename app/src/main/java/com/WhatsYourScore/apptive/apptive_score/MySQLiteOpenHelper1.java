@@ -9,21 +9,21 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 //table를 만들기 위해선 helper를 많이 쓰는 방법으로 접근
 public class MySQLiteOpenHelper1 extends SQLiteOpenHelper {
-    public MySQLiteOpenHelper1(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
+  public MySQLiteOpenHelper1(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    super(context, name, factory, version);
+  }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        String sql = "create table Sortdata (" + "_id integer primary key autoincrement, " + "Depart text, " + "Subject_div text, " +
-                "Subject text, " + "Grade text, " + "Check_num int);";
-        db.execSQL(sql);
-    }
+  @Override
+  public void onCreate(SQLiteDatabase db) {
+    String sql = "create table Sortdata (" + "_id integer primary key autoincrement, " + "Depart text, " + "Subject_div text, " +
+        "Subject text, " + "Grade text, " + "Check_num int);";
+    db.execSQL(sql);
+  }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "drop table if exists Sortdata";
-        db.execSQL(sql);
-        onCreate(db);
-    }
+  @Override
+  public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    String sql = "drop table if exists Sortdata";
+    db.execSQL(sql);
+    onCreate(db);
+  }
 }

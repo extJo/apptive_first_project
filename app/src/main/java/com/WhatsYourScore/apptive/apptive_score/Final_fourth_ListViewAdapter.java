@@ -133,7 +133,7 @@ public class Final_fourth_ListViewAdapter extends BaseAdapter {
   public int getGradepoint(int position) {
     String string = Subjectlist.get(position).getGrade();
     double temp = Double.parseDouble(string);
-    int return_num = (int)temp;
+    int return_num = (int) temp;
     return return_num;
   }
 
@@ -152,8 +152,6 @@ public class Final_fourth_ListViewAdapter extends BaseAdapter {
     TextView grade;
     ToggleButton button;
   }
-
-
 
 
 }

@@ -15,7 +15,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="16dp"
-        android:layout_weight="9.4">
+        android:layout_weight="9">
 
         <ListView
             android:id="@+id/final_fourth_listview"
@@ -32,7 +32,7 @@
         android:id="@+id/major_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.6"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:weightSum="4">
 
@@ -45,19 +45,26 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/etc_plus"
-            android:background="#000000"
+            android:src="@drawable/ic_plusminus_29"
+            android:background="@drawable/left_top_corner"
             android:scaleType="fitCenter"
-            android:padding="5dp"/>
+            android:paddingTop="14dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="12dp"/>
+
         <ImageButton
             android:id="@+id/etc_delete_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/etc_delete"
-            android:background="#000000"
+            android:src="@drawable/ic_plusminus_30"
+            android:background="#222222"
             android:scaleType="fitCenter"
-            android:padding="12dp"/>
+            android:paddingTop="21.5dp"
+            android:paddingLeft="20.5dp"
+            android:paddingRight="20.5dp"
+            android:paddingBottom="20.5dp"/>
 
     </LinearLayout>
 

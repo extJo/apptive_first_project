@@ -6,14 +6,14 @@ package com.WhatsYourScore.apptive.apptive_score;
 
 public class Department {
 
-    private String dapart;
+  private String dapart;
 
-    public Department(String par_dapart) {
-        dapart = par_dapart;
-    }
+  public Department(String par_dapart) {
+    dapart = par_dapart;
+  }
 
-    public String getDapart() {
-        return this.dapart;
-    }
+  public String getDapart() {
+    return this.dapart;
+  }
 
 }
