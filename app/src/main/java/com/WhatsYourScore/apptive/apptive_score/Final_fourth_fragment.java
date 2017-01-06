@@ -86,6 +86,24 @@ public class Final_fourth_fragment extends Fragment {
     });
 
     // delete 버튼에 대한 click listener
+    delete.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+
+        if(v.equals(R.id.etc_delete_button)) {
+          v.findViewById(R.id.final_fourth_listview).setVisibility(View.INVISIBLE);
+          v.findViewById(R.id.final_fourth_listview_delete_page).setVisibility(View.VISIBLE);
+
+          final Final_fourth_ListViewAdapter.ViewHolder holder;
+        
+        }
+        else{
+
+
+        }
+
+      }
+    });
 
 
     return view;
@@ -104,7 +122,7 @@ public class Final_fourth_fragment extends Fragment {
 
       String subject = Edit_subject.getText().toString();
       String grade = Edit_grade.getText().toString();
-      
+
       // 소수점 변환
       double temp = Double.parseDouble(grade);
       DecimalFormat temp_decimal = new DecimalFormat("#.#");
