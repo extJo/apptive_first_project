@@ -1,5 +1,4 @@
 package com.WhatsYourScore.apptive.apptive_score;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
