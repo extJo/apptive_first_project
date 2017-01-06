@@ -102,6 +102,13 @@ public class Final_fourth_fragment extends Fragment {
 
       String subject = Edit_subject.getText().toString();
       String grade = Edit_grade.getText().toString();
+      
+      // 소수점 변환
+      double temp = Double.parseDouble(grade);
+      DecimalFormat temp_decimal = new DecimalFormat("#.#");
+      temp_decimal.format(temp);
+      grade = String.valueOf(temp);
+
 
       double temp = Double.parseDouble(grade);
       DecimalFormat temp_decimal = new DecimalFormat("#.#");
