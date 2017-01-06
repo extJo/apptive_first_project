@@ -11,7 +11,6 @@ import android.widget.TextView;
 /**
  * Created by kgm13 on 2017-01-05.
  */
-
 public class Add_box extends Dialog {
   private TextView mTitleView;
   private EditText mSubText;
