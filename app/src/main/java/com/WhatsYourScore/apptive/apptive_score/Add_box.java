@@ -34,6 +34,14 @@ public class Add_box extends Dialog {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+<<<<<<< HEAD
+      // 다이얼로그 외부 화면 흐리게 표현
+      WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
+      lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+      lpWindow.dimAmount = 0.8f;
+      getWindow().setAttributes(lpWindow);
+      setContentView(R.layout.activity_add_box);
+=======
     // 다이얼로그 외부 화면 흐리게 표현
     WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
     lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
@@ -41,6 +49,7 @@ public class Add_box extends Dialog {
     getWindow().setAttributes(lpWindow);
 
     setContentView(R.layout.activity_add_box);
+>>>>>>> refs/remotes/origin/master
 
     mTitleView = (TextView) findViewById(R.id.add_text);
     mSubText = (EditText) findViewById(R.id.add_sub);

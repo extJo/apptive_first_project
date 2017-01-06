@@ -48,7 +48,7 @@ public class Final_fourth_ListViewAdapter extends BaseAdapter {
   @Override
   public int getViewTypeCount() {
 
-    return getCount();
+    return 1;
   }
 
   @Override
