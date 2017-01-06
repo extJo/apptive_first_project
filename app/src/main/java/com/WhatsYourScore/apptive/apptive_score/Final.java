@@ -36,6 +36,7 @@ public class Final extends BaseActivity {
   static int grade2 = 0;
   static int grade3 = 0;
   static int grade4 = 0;
+  static int grade4_delete =0;
   static int grade_total = 0;
   TextView textView;
   int i = 0;
