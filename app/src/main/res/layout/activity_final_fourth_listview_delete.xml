@@ -20,7 +20,7 @@
             android:layout_weight="10">
             <ToggleButton
                 android:id="@+id/check_button_delete"
-                android:background="@drawable/ic_button_27"
+                android:background="@drawable/ic_button_28"
                 android:textOn=""
                 android:textOff=""
                 android:layout_width="30dp"
@@ -57,22 +57,17 @@
                 android:textSize="15dp"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1">
-            <ToggleButton
-                android:id="@+id/subject_button4_delete"
-                android:background="@drawable/ic_button_box_icon"
-                android:textOn=""
-                android:textOff=""
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-        </LinearLayout>
-    </LinearLayout>
 
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+        <ToggleButton
+            android:id="@+id/subject_button4_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
+    </FrameLayout>
 
 </LinearLayout>

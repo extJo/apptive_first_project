@@ -16,7 +16,7 @@ public class MySQLiteOpenHelper4 extends SQLiteOpenHelper {
   @Override
   public void onCreate(SQLiteDatabase db) {
     String sql = "create table Sortdata4 (" + "_id integer primary key autoincrement, " + "Depart text, " + "Subject_div text, " +
-        "Subject text, " + "Grade text, " + "Check_num int);";
+        "Subject text, " + "Grade text, " + "Check_num int, " + "Delete_num int);";
     db.execSQL(sql);
   }
 
