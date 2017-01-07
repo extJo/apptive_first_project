@@ -62,14 +62,6 @@
                 android:textColor="@color/white"
                 android:textSize="15dp"/>
         </LinearLayout>
-
-<<<<<<< HEAD
-=======
-
-    </LinearLayout>
->>>>>>> refs/remotes/origin/master
-
-
     </LinearLayout>
     <FrameLayout
         android:layout_width="0dp"
