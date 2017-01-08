@@ -53,8 +53,7 @@
             android:background="@drawable/edit_bottom"
             android:textSize="15dp"
             android:layout_margin="5dp"
-            android:inputType="number"
-            android:digits="0123456789"/>
+            android:inputType="numberDecimal|numberSigned"/>
 
         <LinearLayout
             android:layout_width="match_parent"
