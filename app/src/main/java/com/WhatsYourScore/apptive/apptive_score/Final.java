@@ -35,9 +35,9 @@ public class Final extends BaseActivity {
   static int grade1 = 0;
   static int grade2 = 0;
   static int grade3 = 0;
-  static int grade4 = 0;
-  static int grade4_delete =0;
-  static int grade_total = 0;
+  static float grade4 = 0;
+  static float grade4_delete = 0f;
+  static float grade_total = 0f;
   TextView textView;
   int i = 0;
   Workbook wb;
@@ -70,8 +70,8 @@ public class Final extends BaseActivity {
     grade1 = pref.getInt("grade1", 0);
     grade2 = pref.getInt("grade2", 0);
     grade3 = pref.getInt("grade3", 0);
-    grade4 = pref.getInt("grade4", 0);
-    grade_total = pref.getInt("grade_total", 0);
+    grade4 = pref.getFloat("grade4", 0f);
+    grade_total = pref.getFloat("grade_total", 0f);
 
     textView = (TextView) findViewById(R.id.final_text);
     textView1 = (TextView) findViewById(R.id.final_grade_current1);
@@ -260,8 +260,8 @@ public class Final extends BaseActivity {
     editor.putInt("grade1", grade1);
     editor.putInt("grade2", grade2);
     editor.putInt("grade3", grade3);
-    editor.putInt("grade4", grade4);
-    editor.putInt("grade_total", grade_total);
+    editor.putFloat("grade4", grade4);
+    editor.putFloat("grade_total", grade_total);
     editor.commit();
     super.onStop();
   }

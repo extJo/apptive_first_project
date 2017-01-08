@@ -41,10 +41,12 @@ public class Final_fourth_fragment extends Fragment {
     String[] items_grade_fourth = new String[100];      //listview의 학점
     int[] items_button_fourth = new int[100];           // listview의 togglebutton
 
+    boolean listview_check = false;
     int[] items_choose_button_fourth = new int[100];        // livtview_delete의 delete를 할건지 물어보는 체크, 지우면 1
     String[] items_fourth_delete = new String[100];         // livtview_delete의 과목명
     String[] items_grade_fourth_delete = new String[100];   // livtview_delete의 학점
     int[] items_button_fourth_delete = new int[100];        // livtview_delete의 togglebutton
+
 
     boolean listview_delete_check = false;
     ArrayList<Subject> arrayList = new ArrayList<Subject>();            // list : 일반 버젼
@@ -203,7 +205,8 @@ public class Final_fourth_fragment extends Fragment {
                     int check = c.getInt(c.getColumnIndex("Check_num"));
                     if (Objects.equals(check_confirm, "1")) {
                         update_delete_num(subject, 1);
-                    } else {
+                    }
+                    else {
                         items_fourth[item_num] = subject;    // 교과목명
                         items_grade_fourth[item_num] = grade; //  학점
                         items_button_fourth[item_num] = check;
@@ -267,8 +270,15 @@ public class Final_fourth_fragment extends Fragment {
             editor.putBoolean("Fourth_DB", true);
             editor.commit();
             insert(depart, "0", subject, grade, 0);
-            adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
-            listView.setAdapter(adapter);
+
+            if(listview_check || dbcheck4) {
+                adapter.notifyDataSetChanged();
+            }
+            else {
+                listview_check = true;
+                adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
+                listView.setAdapter(adapter);
+            }
 
             mAdd_box.dismiss();
         }
@@ -307,7 +317,7 @@ public class Final_fourth_fragment extends Fragment {
     // Depart : 과명칭, suject_div : 전공기초와 같은 전공 분류, Subject : 과목명 Grade: 과목에 대한 학점(1,2,3) check_num :버튼 on1, off0
     // 순으로 테이블 추가
 
-    public void insert(String depart, String subject_div, String subject, String grade, int check) {
+    public void insert(String depart, String subject_div, String subject, String grade, double check) {
         // 쓰기 권한인 DB 객체를 얻어온다.
         db4 = helper4.getWritableDatabase();
         int delete = 0;

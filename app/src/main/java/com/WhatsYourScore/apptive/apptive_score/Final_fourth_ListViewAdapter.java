@@ -107,7 +107,7 @@ public class Final_fourth_ListViewAdapter extends BaseAdapter {
           holder.button.setChecked(true);
           holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
           holder.subject.setTextColor(Color.parseColor("#FFA500"));
-          int num = getGradepoint(position);
+          float num = getGradepoint(position);
           grade4 += num;
           grade_total += num;
           textView4.setText(String.valueOf(grade4));
@@ -117,7 +117,7 @@ public class Final_fourth_ListViewAdapter extends BaseAdapter {
           holder.button.setChecked(false);
           holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
           holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
-          int num = getGradepoint(position);
+          float num = getGradepoint(position);
           grade4 -= num;
           grade_total -= num;
           textView4.setText(String.valueOf(grade4));
@@ -130,11 +130,10 @@ public class Final_fourth_ListViewAdapter extends BaseAdapter {
   }
 
 
-  public int getGradepoint(int position) {
+  public float getGradepoint(int position) {
     String string = Subjectlist.get(position).getGrade();
-    double temp = Double.parseDouble(string);
-    int return_num = (int) temp;
-    return return_num;
+    float temp = Float.parseFloat(string);
+    return temp;
   }
 
   public void update(String subject, int check) {

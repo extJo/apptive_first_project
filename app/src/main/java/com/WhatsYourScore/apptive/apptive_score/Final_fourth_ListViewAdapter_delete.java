@@ -103,7 +103,7 @@ public class Final_fourth_ListViewAdapter_delete extends BaseAdapter {
                 if (holder.check_button.isChecked()) { // 누르므로써 버튼이 check가 될경우
                     holder.check_button.setChecked(true);
                     holder.check_button.setBackgroundResource(R.drawable.ic_button_27);
-                    int num = getGradepoint(position);
+                    float num = getGradepoint(position);
                     if(holder.button.isChecked()) {
                         grade4_delete -= num;
                     }
@@ -111,7 +111,7 @@ public class Final_fourth_ListViewAdapter_delete extends BaseAdapter {
                 } else {
                     holder.check_button.setChecked(false);
                     holder.check_button.setBackgroundResource(R.drawable.ic_button_28);
-                    int num = getGradepoint(position);
+                    float num = getGradepoint(position);
                     if(holder.button.isChecked()) {
                         grade4_delete += num;
                     }
@@ -123,11 +123,10 @@ public class Final_fourth_ListViewAdapter_delete extends BaseAdapter {
     }
 
 
-    public int getGradepoint(int position) {
+    public float getGradepoint(int position) {
         String string = Subjectlist.get(position).getGrade();
-        double temp = Double.parseDouble(string);
-        int return_num = (int) temp;
-        return return_num;
+        float temp = Float.parseFloat(string);
+        return temp;
     }
 
     public void update(String subject, String check) {
