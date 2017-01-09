@@ -251,35 +251,35 @@ public class Final_fourth_fragment extends Fragment {
             String grade = Edit_grade.getText().toString();
 
             // 소수점 변환
-            double temp = Double.parseDouble(grade);
-            DecimalFormat temp_decimal = new DecimalFormat("#.#");
-            temp_decimal.format(temp);
-            grade = String.valueOf(temp);
+            if(!Objects.equals(subject, "")) {
+                double temp = Double.parseDouble(grade);
+                DecimalFormat temp_decimal = new DecimalFormat("#.#");
+                temp_decimal.format(temp);
+                grade = String.valueOf(temp);
 
-            items_fourth[item_num] = subject;    // 교과목명
-            items_grade_fourth[item_num] = grade; //  학점
-            items_button_fourth[item_num] = 0;
-            Subject sj = new Subject(items_fourth[item_num], items_grade_fourth[item_num], items_button_fourth[item_num]);
-            arrayList.add(sj);
-            item_num++;
+                items_fourth[item_num] = subject;    // 교과목명
+                items_grade_fourth[item_num] = grade; //  학점
+                items_button_fourth[item_num] = 0;
+                Subject sj = new Subject(items_fourth[item_num], items_grade_fourth[item_num], items_button_fourth[item_num]);
+                arrayList.add(sj);
+                item_num++;
 
-            pref = getContext().getSharedPreferences("Preference", 0);
-            depart = pref.getString("과명칭", "error"); // 학과명
-            admission = pref.getString("입학", "error"); // 입학년도
-            editor = pref.edit();
-            editor.putBoolean("Fourth_DB", true);
-            editor.commit();
-            insert(depart, "0", subject, grade, 0);
+                pref = getContext().getSharedPreferences("Preference", 0);
+                depart = pref.getString("과명칭", "error"); // 학과명
+                admission = pref.getString("입학", "error"); // 입학년도
+                editor = pref.edit();
+                editor.putBoolean("Fourth_DB", true);
+                editor.commit();
+                insert(depart, "0", subject, grade, 0);
 
-            if(listview_check || dbcheck4) {
-                adapter.notifyDataSetChanged();
+                if (listview_check || dbcheck4) {
+                    adapter.notifyDataSetChanged();
+                } else {
+                    listview_check = true;
+                    adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
+                    listView.setAdapter(adapter);
+                }
             }
-            else {
-                listview_check = true;
-                adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
-                listView.setAdapter(adapter);
-            }
-
             mAdd_box.dismiss();
         }
     };
