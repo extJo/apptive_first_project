@@ -34,8 +34,8 @@ public class Setting extends BaseActivity {
       editor.putInt("grade1", 0);
       editor.putInt("grade2", 0);
       editor.putInt("grade3", 0);
-      editor.putInt("grade4", 0);
-      editor.putInt("grade_total", 0);
+      editor.putFloat("grade4", 0);
+      editor.putFloat("grade_total", 0);
       editor.putBoolean("First_DB", false);
       editor.putBoolean("Second_DB", false);
       editor.putBoolean("Third_DB", false);
