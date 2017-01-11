@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:padding="5dp"
+                android:padding="7dp"
                 android:layout_weight="1"
                 android:background="#222222"
                 android:scaleType="fitCenter"
