@@ -25,6 +25,7 @@ public class Subject {
     grade = par_grade;
     button = par_button;
   }
+
   public Subject(int par_check_button, String par_subject, String par_grade, int par_button) {
     check_button = par_check_button;
     subject = par_subject;
@@ -32,7 +33,9 @@ public class Subject {
     button = par_button;
   }
 
-  public int getCheck_button() { return this.check_button; }
+  public int getCheck_button() {
+    return this.check_button;
+  }
 
   public String getSubject() {
     return this.subject;

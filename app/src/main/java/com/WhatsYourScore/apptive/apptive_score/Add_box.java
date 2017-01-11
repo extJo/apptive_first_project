@@ -29,7 +29,7 @@ public class Add_box extends Dialog {
     this.mRightClickListener = rightListener;
   }
 
-  public Add_box( ){
+  public Add_box() {
     super(null);
   }
 
