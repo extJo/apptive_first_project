@@ -34,9 +34,10 @@
         <ImageButton
             android:id="@+id/setting_button"
             android:layout_width="0dp"
-            android:layout_height="20dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
+            android:padding="5dp"
             android:layout_weight="1"
             android:background="#222222"
             android:scaleType="fitCenter"
