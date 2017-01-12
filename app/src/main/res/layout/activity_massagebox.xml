@@ -38,7 +38,7 @@
                 android:layout_weight="4"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="리셋 하시겠습니까?"
+                android:text="초기화 하시겠습니까?"
                 android:textColor="#e2e2e2e2"
                 android:textSize="18dp"/>
 

@@ -74,6 +74,8 @@ public class Setting extends BaseActivity {
     TextView major = (TextView) findViewById(R.id.setting_major);
     major.setText(preference.getString("과명칭", "error"));
 
+    TextView year = (TextView) findViewById(R.id.setting_year);
+    year.setText(preference.getString("입학", "error"));
 
     // back button
     ImageButton set_back_butn = (ImageButton) findViewById(R.id.setting_back);
@@ -103,7 +105,7 @@ public class Setting extends BaseActivity {
       public void onClick(View v) {
         Intent intent = new Intent(Setting.this, MainActivity.class);
 
-        mCustomDialog = new CustomDialog(v.getContext(), "리셋 하시겠습니까?", getDrawable(R.drawable.ic_color_reset_button),
+        mCustomDialog = new CustomDialog(v.getContext(), "초기화 하시겠습니까?", getDrawable(R.drawable.ic_color_reset_button),
             leftListener, rightListener);
         mCustomDialog.show();
 

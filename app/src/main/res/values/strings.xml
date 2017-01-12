@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">부산대 이수과목</string>
+    <string name="app_name">부산대 학점관리</string>
     <string name="hello">안녕하세요</string>
     <string name="suffix">입니다</string>
     <string name="click">Click</string>

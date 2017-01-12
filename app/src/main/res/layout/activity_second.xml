@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="부산대 이수과목"
+                android:text="부산대 학점관리"
                 android:textColor="@color/white"
                 android:textSize="40dp"
                 android:textAlignment="center"
