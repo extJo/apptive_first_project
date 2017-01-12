@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.WhatsYourScore.apptive.apptive_score">
+    package="com.Caregrade.Apptive.Apptive7th">
 
     <application
-        android:name=".MyApplication"
+        android:name="com.Caregrade.Apptive.Apptive7th.MyApplication"
         android:allowBackup="true"
         android:configChanges="keyboardHidden|orientation"
         android:hardwareAccelerated="true"
@@ -12,25 +12,25 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Second" />
-        <activity android:name=".Fourth" />
-        <activity android:name=".Fourth_listview" />
-        <activity android:name=".Third" />
-        <activity android:name=".Third_listview" />
-        <activity android:name=".Fifth" />
-        <activity android:name=".Final" />
-        <activity android:name=".Final_first_listview" />
-        <activity android:name=".Final_second_listview" />
-        <activity android:name=".Final_third_listview" />
-        <activity android:name=".Final_fourth_listview" />
-        <activity android:name=".Final_first_fragment">
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Second" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Fourth" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Fourth_listview" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Third" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Third_listview" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Fifth" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_first_listview" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_second_listview" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_third_listview" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_fourth_listview" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_first_fragment">
             <intent-filter>
 
                 <!-- Receives the actual messages. -->
@@ -41,12 +41,12 @@
                 <category android:name="com.androidhive.pushnotifications" />
             </intent-filter>
         </activity>
-        <activity android:name=".Final_second_fragment" />
-        <activity android:name=".Final_third_fragment" />
-        <activity android:name=".Final_fourth_fragment" />
-        <activity android:name=".Final_custom_titlebar" />
-        <activity android:name=".Notice" />
-        <activity android:name=".Add_box" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_second_fragment" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_third_fragment" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_custom_titlebar" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Notice" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Add_box" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -55,10 +55,10 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Credit" />
-        <activity android:name=".Setting" />
-        <activity android:name=".SettingNotice" />
-        <activity android:name=".Final_fourth_listview_delete"></activity>
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Credit" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Setting" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.SettingNotice" />
+        <activity android:name="com.Caregrade.Apptive.Apptive7th.Final_fourth_listview_delete"></activity>
     </application>
 
 </manifest>

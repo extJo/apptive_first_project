@@ -8,7 +8,7 @@
     android:background="#282828"
     android:baselineAligned="false"
     android:orientation="vertical"
-    tools:context="com.WhatsYourScore.apptive.apptive_score.Setting">
+    tools:context="com.Caregrade.Apptive.Apptive7th.Setting">
 
 
         <LinearLayout

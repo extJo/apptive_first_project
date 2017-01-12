@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="40dp"
-    tools:context="com.WhatsYourScore.apptive.apptive_score.Final_fourth_listview">
+    tools:context="com.Caregrade.Apptive.Apptive7th.Final_fourth_listview">
 
     <LinearLayout
         android:orientation="horizontal"

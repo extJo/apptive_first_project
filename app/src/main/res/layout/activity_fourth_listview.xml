@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#282828"
-    tools:context="com.WhatsYourScore.apptive.apptive_score.Fourth_listview">
+    tools:context="com.Caregrade.Apptive.Apptive7th.Fourth_listview">
 
 
     <TextView

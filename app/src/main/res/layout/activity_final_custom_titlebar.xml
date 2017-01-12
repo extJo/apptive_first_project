@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context="com.WhatsYourScore.apptive.apptive_score.Final_custom_titlebar">
+    tools:context="com.Caregrade.Apptive.Apptive7th.Final_custom_titlebar">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

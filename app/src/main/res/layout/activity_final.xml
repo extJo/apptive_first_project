@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context="com.WhatsYourScore.apptive.apptive_score.Final">
+    tools:context="com.Caregrade.Apptive.Apptive7th.Final">
 
 
     <LinearLayout
