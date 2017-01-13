@@ -34,7 +34,8 @@ public class Final_fourth_fragment extends Fragment {
   static MySQLiteOpenHelper4 helper4; // db의 table
   static boolean temp_temp4 = false;  //DB가 생성 되었을시, 그 DB파일 들고와서 listview를 작성시, 체크상태를 확인해 주는 변수
   //DB를 이용하여서 초기에 다시 생성할시 true;
-  boolean dbcheck4 = false;           //4번째 DB가 생성되었는지 확인, 생성이 되었을시 true; sharedpreference에 생성 여부 save,load
+  static boolean dbcheck4 = false;           //4번째 DB가 생성되었는지 확인, 생성이 되었을시 true; sharedpreference에 생성 여부 save,load
+                                             //setting java 파일에서 DB를 지울떄 생성되었는지 안되었는지 체크하기 위해서 static 선언
 
   // listview관련 변수들
   String[] items_fourth = new String[100];            //listview의 과목명
@@ -190,36 +191,46 @@ public class Final_fourth_fragment extends Fragment {
     button_confirm.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        arrayList.clear();
-        adapter.notifyDataSetChanged();
+        if(listview_check) {
+          arrayList.clear();
+          adapter.notifyDataSetChanged();
 
-        Cursor c = db4.query("Sortdata4", null, null, null, null, null, null, null);
-        temp_temp4 = true; // 아이콘이 체크됐는지 확인
-        while (c.moveToNext()) {
-          String check_confirm = c.getString(c.getColumnIndex("Subject_div"));
-          String subject = c.getString(c.getColumnIndex("Subject"));
-          String grade = c.getString(c.getColumnIndex("Grade"));
-          int check = c.getInt(c.getColumnIndex("Check_num"));
-          if (Objects.equals(check_confirm, "1")) {
-            update_delete_num(subject, 1);
-          } else {
-            items_fourth[item_num] = subject;    // 교과목명
-            items_grade_fourth[item_num] = grade; //  학점
-            items_button_fourth[item_num] = check;
-            Subject sj = new Subject(items_fourth[item_num], items_grade_fourth[item_num], items_button_fourth[item_num]);
-            arrayList.add(sj);
-            item_num++;
+
+          Cursor c = db4.query("Sortdata4", null, null, null, null, null, null, null);
+          temp_temp4 = true; // 아이콘이 체크됐는지 확인
+          item_num = 0;
+          while (c.moveToNext()) {
+            String check_confirm = c.getString(c.getColumnIndex("Subject_div"));
+            String subject = c.getString(c.getColumnIndex("Subject"));
+            String grade = c.getString(c.getColumnIndex("Grade"));
+            int check = c.getInt(c.getColumnIndex("Check_num"));
+            if (Objects.equals(check_confirm, "1")) {
+              update_delete_num(subject, 1);
+            } else {
+              items_fourth[item_num] = subject;    // 교과목명
+              items_grade_fourth[item_num] = grade; //  학점
+              items_button_fourth[item_num] = check;
+              Subject sj = new Subject(items_fourth[item_num], items_grade_fourth[item_num], items_button_fourth[item_num]);
+              arrayList.add(sj);
+              item_num++;
+            }
           }
-        }
 
-        adapter = new Final_fourth_ListViewAdapter(getActivity().getApplicationContext(), arrayList);
-        listView.setAdapter(adapter);
-        grade4 += grade4_delete;
-        grade_total += grade4_delete;
-        textView4.setText(String.valueOf(grade4));
-        textView_total.setText(String.valueOf(grade_total));
+          adapter = new Final_fourth_ListViewAdapter(getActivity().getApplicationContext(), arrayList);
+          listView.setAdapter(adapter);
+          grade4 += grade4_delete;
+          grade_total += grade4_delete;
+          textView4.setText(String.valueOf(grade4));
+          textView_total.setText(String.valueOf(grade_total));
+
+        }
+        //temp_temp4 = false; //아이콘 체크표시확인을 원래대로 돌려놈
+        if(item_num > 0) {  // list가 한개라도 있을시 check true 표시
+          listview_check = true;
+        }
         Visiable_default();
       }
+
     });
 
     //취소 버튼을 눌렸을때에 대한 eventlistner
@@ -286,11 +297,9 @@ public class Final_fourth_fragment extends Fragment {
           adapter = new Final_fourth_ListViewAdapter(fourth_context, arrayList);
           listView.setAdapter(adapter);
         }
-
+        dbcheck4 = true;
         mAdd_box.dismiss();
       }
-
-
 
     }
   };
