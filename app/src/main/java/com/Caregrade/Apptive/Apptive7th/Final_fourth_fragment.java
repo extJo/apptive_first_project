@@ -37,6 +37,7 @@ public class Final_fourth_fragment extends Fragment {
   static boolean dbcheck4 = false;           //4번째 DB가 생성되었는지 확인, 생성이 되었을시 true; sharedpreference에 생성 여부 save,load
   //setting java 파일에서 DB를 지울떄 생성되었는지 안되었는지 체크하기 위해서 static 선언
 
+
   // listview관련 변수들
   String[] items_fourth = new String[100];            //listview의 과목명
   String[] items_grade_fourth = new String[100];      //listview의 학점
