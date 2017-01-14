@@ -59,7 +59,7 @@
                     android:background="@drawable/left_top_corner"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_plusminus_29"
-                    android:padding="10dp"/>
+                    android:padding="13dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -73,7 +73,7 @@
                     android:background="#222222"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_minus_32"
-                    android:padding="10dp"/>
+                    android:padding="13dp"/>
             </RelativeLayout>
 
 
