@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import static com.Caregrade.Apptive.Apptive7th.Final_first_fragment.db;
 import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.db4;
-import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.temp_temp4;
+import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.dbcheck4;
 import static com.Caregrade.Apptive.Apptive7th.Final_second_fragment.db2;
 import static com.Caregrade.Apptive.Apptive7th.Final_third_fragment.db3;
 
@@ -39,14 +39,14 @@ public class Setting extends BaseActivity {
       editor.putBoolean("First_DB", false);
       editor.putBoolean("Second_DB", false);
       editor.putBoolean("Third_DB", false);
-      editor.putBoolean("Fourth_DB", false); // 4번째뷰 db를 지울때 쓸것!
+      editor.putBoolean("Fourth_DB", false);
       editor.commit();
 
       db.execSQL("delete from " + "Sortdata");
       db2.execSQL("delete from " + "Sortdata2");
       db3.execSQL("delete from " + "Sortdata3");
-      if (temp_temp4)
-        db4.execSQL("delete from " + "Sortdata4");   // 4번째뷰 db를 지울때 쓸것!
+      if (dbcheck4)
+        db4.execSQL("delete from " + "Sortdata4");
       Intent intent = new Intent(Setting.this, Third.class);
       startActivity(intent);
 

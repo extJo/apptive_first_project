@@ -57,12 +57,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/left_top_corner"
-                    android:paddingBottom="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
-                    android:paddingTop="14dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_plusminus_29"/>
+                    android:src="@drawable/ic_plusminus_29"
+                    android:padding="10dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -74,12 +71,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#222222"
-                    android:paddingBottom="20.5dp"
-                    android:paddingLeft="20.5dp"
-                    android:paddingRight="20.5dp"
-                    android:paddingTop="21.5dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_plusminus_30"/>
+                    android:src="@drawable/ic_minus_32"
+                    android:padding="10dp"/>
             </RelativeLayout>
 
 
