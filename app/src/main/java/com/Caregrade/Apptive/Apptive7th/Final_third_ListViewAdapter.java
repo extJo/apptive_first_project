@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -99,6 +100,33 @@ public class Final_third_ListViewAdapter extends BaseAdapter {
         holder.button.setChecked(false);
       }
     }
+
+    final LinearLayout listview = (LinearLayout) view.findViewById(R.id.activity_final_third_listview);
+    listview.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        temp_temp3 = false;
+        if (holder.button.isChecked()) {
+          holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
+          holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
+          int num = getGradepoint(position);
+          grade3 -= num;
+          grade_total -= num;
+          textView3.setText(String.valueOf(grade3));
+          textView_total.setText(String.valueOf(grade_total));
+          update(holder.subject.getText().toString(), 0);
+        } else {
+          holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
+          holder.subject.setTextColor(Color.parseColor("#FFA500"));
+          int num = getGradepoint(position);
+          grade3 += num;
+          grade_total += num;
+          textView3.setText(String.valueOf(grade3));
+          textView_total.setText(String.valueOf(grade_total));
+          update(holder.subject.getText().toString(), 1);
+        }
+      }
+    });
 
     holder.button.setOnClickListener(new View.OnClickListener() {
       @Override
