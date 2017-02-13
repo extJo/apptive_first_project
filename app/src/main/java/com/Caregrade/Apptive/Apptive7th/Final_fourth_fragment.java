@@ -24,6 +24,7 @@ import java.util.Objects;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade4;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade4_delete;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade_total;
+import static com.Caregrade.Apptive.Apptive7th.Final.holdState;
 import static com.Caregrade.Apptive.Apptive7th.Final.textView4;
 import static com.Caregrade.Apptive.Apptive7th.Final.textView_total;
 
@@ -131,8 +132,10 @@ public class Final_fourth_fragment extends Fragment {
     add.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        mAdd_box = new Add_box(v.getContext(), leftListener, rightListener);
-        mAdd_box.show();
+        if (!holdState) {
+          mAdd_box = new Add_box(v.getContext(), leftListener, rightListener);
+          mAdd_box.show();
+        }
       }
     });
 
@@ -142,47 +145,49 @@ public class Final_fourth_fragment extends Fragment {
       public void onClick(View v) {
         //4번째 DB에 있는 내용을 listview로 불러오는 과정(delete뷰에 맞는 양식으로 들고옴)
         // listview_delete가 생성되었을시, 그 listview에 대해서 clear해줌
-        if (listview_delete_check) {
-          arrayList_delete.clear();
-          adapter_delete.notifyDataSetChanged();
-        }
-
-        db4 = helper4.getReadableDatabase();
-        Cursor c = db4.query("Sortdata4", null, null, null, null, null, null, null);
-        ;
-        int item_num = 0;
-        int delete_num;
-        grade4_delete = 0;
-        while (c.moveToNext()) { //db의 id를 하나씩 이동하면서 list를 추가합니다
-          delete_num = c.getInt(c.getColumnIndex("Delete_num"));
-          String subject = c.getString(c.getColumnIndex("Subject"));
-          String grade = c.getString(c.getColumnIndex("Grade"));
-          String check_confirm = c.getString(c.getColumnIndex("Subject_div"));
-          int check = c.getInt(c.getColumnIndex("Check_num"));
-
-          if (delete_num == 0) {
-            //DB의 내용을 list에 넣는과정
-            items_choose_button_fourth[item_num] = 0;
-            items_fourth_delete[item_num] = subject;    // 교과목명
-            items_grade_fourth_delete[item_num] = grade; //  학점
-            items_button_fourth_delete[item_num] = check;
-            Subject sj = new Subject(items_choose_button_fourth[item_num], items_fourth_delete[item_num], items_grade_fourth_delete[item_num], items_button_fourth_delete[item_num]);
-            arrayList_delete.add(sj);
-            item_num++;
-            if (Objects.equals(check_confirm, "1")) {
-              update_subject_div(subject, "0");
-            }
+        if (!holdState) {
+          if (listview_delete_check) {
+            arrayList_delete.clear();
+            adapter_delete.notifyDataSetChanged();
           }
 
-          //Subject_div : 4번째 DB에서는 Delete여부를 체크하는 용도, 0으로 다 초기화
-        }
-        adapter_delete = new Final_fourth_ListViewAdapter_delete(getActivity().getApplicationContext(), arrayList_delete);
-        listView_delete.setAdapter(adapter_delete);
-        listview_delete_check = true;           //listview_delete가 만들어 졌음을 의미
-        adapter_delete.notifyDataSetChanged();
+          db4 = helper4.getReadableDatabase();
+          Cursor c = db4.query("Sortdata4", null, null, null, null, null, null, null);
+          ;
+          int item_num = 0;
+          int delete_num;
+          grade4_delete = 0;
+          while (c.moveToNext()) { //db의 id를 하나씩 이동하면서 list를 추가합니다
+            delete_num = c.getInt(c.getColumnIndex("Delete_num"));
+            String subject = c.getString(c.getColumnIndex("Subject"));
+            String grade = c.getString(c.getColumnIndex("Grade"));
+            String check_confirm = c.getString(c.getColumnIndex("Subject_div"));
+            int check = c.getInt(c.getColumnIndex("Check_num"));
 
-        Visiable_delete();
-        // dialog로 리스트가 없음을 표시 ... 어째 해야하노?
+            if (delete_num == 0) {
+              //DB의 내용을 list에 넣는과정
+              items_choose_button_fourth[item_num] = 0;
+              items_fourth_delete[item_num] = subject;    // 교과목명
+              items_grade_fourth_delete[item_num] = grade; //  학점
+              items_button_fourth_delete[item_num] = check;
+              Subject sj = new Subject(items_choose_button_fourth[item_num], items_fourth_delete[item_num], items_grade_fourth_delete[item_num], items_button_fourth_delete[item_num]);
+              arrayList_delete.add(sj);
+              item_num++;
+              if (Objects.equals(check_confirm, "1")) {
+                update_subject_div(subject, "0");
+              }
+            }
+
+            //Subject_div : 4번째 DB에서는 Delete여부를 체크하는 용도, 0으로 다 초기화
+          }
+          adapter_delete = new Final_fourth_ListViewAdapter_delete(getActivity().getApplicationContext(), arrayList_delete);
+          listView_delete.setAdapter(adapter_delete);
+          listview_delete_check = true;           //listview_delete가 만들어 졌음을 의미
+          adapter_delete.notifyDataSetChanged();
+
+          Visiable_delete();
+          // dialog로 리스트가 없음을 표시 ... 어째 해야하노?
+        }
       }
     });
 

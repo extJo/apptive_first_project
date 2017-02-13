@@ -14,6 +14,7 @@ import java.util.List;
 
 import static com.Caregrade.Apptive.Apptive7th.Final.context_final;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade4_delete;
+import static com.Caregrade.Apptive.Apptive7th.Final.holdState;
 import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.db4;
 import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.helper4;
 
@@ -94,25 +95,28 @@ public class Final_fourth_ListViewAdapter_delete extends BaseAdapter {
 
     holder.subject.setText(Subjectlist.get(position).getSubject());
     holder.grade.setText(Subjectlist.get(position).getGrade());
+
     holder.check_button.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (holder.check_button.isChecked()) { // 누르므로써 버튼이 check가 될경우
-          holder.check_button.setChecked(true);
-          holder.check_button.setBackgroundResource(R.drawable.ic_button_27);
-          float num = getGradepoint(position);
-          if (holder.button.isChecked()) {
-            grade4_delete -= num;
+        if (!holdState) {
+          if (holder.check_button.isChecked()) { // 누르므로써 버튼이 check가 될경우
+            holder.check_button.setChecked(true);
+            holder.check_button.setBackgroundResource(R.drawable.ic_button_27);
+            float num = getGradepoint(position);
+            if (holder.button.isChecked()) {
+              grade4_delete -= num;
+            }
+            update(holder.subject.getText().toString(), "1");
+          } else {
+            holder.check_button.setChecked(false);
+            holder.check_button.setBackgroundResource(R.drawable.ic_button_28);
+            float num = getGradepoint(position);
+            if (holder.button.isChecked()) {
+              grade4_delete += num;
+            }
+            update(holder.subject.getText().toString(), "0");
           }
-          update(holder.subject.getText().toString(), "1");
-        } else {
-          holder.check_button.setChecked(false);
-          holder.check_button.setBackgroundResource(R.drawable.ic_button_28);
-          float num = getGradepoint(position);
-          if (holder.button.isChecked()) {
-            grade4_delete += num;
-          }
-          update(holder.subject.getText().toString(), "0");
         }
       }
     });
