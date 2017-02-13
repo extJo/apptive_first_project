@@ -138,6 +138,7 @@ public class Final_third_ListViewAdapter extends BaseAdapter {
         if(!holdState) {
           temp_temp3 = false;
           if (holder.button.isChecked()) {
+            holder.button.setChecked(true);
             holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
             holder.subject.setTextColor(Color.parseColor("#FFA500"));
             int num = getGradepoint(position);
@@ -147,6 +148,7 @@ public class Final_third_ListViewAdapter extends BaseAdapter {
             textView_total.setText(String.valueOf(grade_total));
             update(holder.subject.getText().toString(), 1);
           } else {
+            holder.button.setChecked(false);
             holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
             holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
             int num = getGradepoint(position);
