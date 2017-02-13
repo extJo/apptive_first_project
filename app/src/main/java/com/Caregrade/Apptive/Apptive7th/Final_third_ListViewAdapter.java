@@ -17,6 +17,7 @@ import java.util.Locale;
 import static com.Caregrade.Apptive.Apptive7th.Final.context_final;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade3;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade_total;
+import static com.Caregrade.Apptive.Apptive7th.Final.holdState;
 import static com.Caregrade.Apptive.Apptive7th.Final.textView3;
 import static com.Caregrade.Apptive.Apptive7th.Final.textView_total;
 import static com.Caregrade.Apptive.Apptive7th.Final_third_fragment.db3;
@@ -100,32 +101,36 @@ public class Final_third_ListViewAdapter extends BaseAdapter {
       }
     }
 
+
     holder.button.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        temp_temp3 = false;
-        if (holder.button.isChecked()) {
-          holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
-          holder.subject.setTextColor(Color.parseColor("#FFA500"));
-          int num = getGradepoint(position);
-          grade3 += num;
-          grade_total += num;
-          textView3.setText(String.valueOf(grade3));
-          textView_total.setText(String.valueOf(grade_total));
-          update(holder.subject.getText().toString(), 1);
+        if (!holdState) {
+          temp_temp3 = false;
+          if (holder.button.isChecked()) {
+            holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
+            holder.subject.setTextColor(Color.parseColor("#FFA500"));
+            int num = getGradepoint(position);
+            grade3 += num;
+            grade_total += num;
+            textView3.setText(String.valueOf(grade3));
+            textView_total.setText(String.valueOf(grade_total));
+            update(holder.subject.getText().toString(), 1);
 
-        } else {
-          holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
-          holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
-          int num = getGradepoint(position);
-          grade3 -= num;
-          grade_total -= num;
-          textView3.setText(String.valueOf(grade3));
-          textView_total.setText(String.valueOf(grade_total));
-          update(holder.subject.getText().toString(), 0);
+          } else {
+            holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
+            holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
+            int num = getGradepoint(position);
+            grade3 -= num;
+            grade_total -= num;
+            textView3.setText(String.valueOf(grade3));
+            textView_total.setText(String.valueOf(grade_total));
+            update(holder.subject.getText().toString(), 0);
+          }
         }
       }
     });
+
     return view;
   }
 

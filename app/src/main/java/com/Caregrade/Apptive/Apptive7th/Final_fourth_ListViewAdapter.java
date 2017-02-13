@@ -16,6 +16,7 @@ import java.util.List;
 import static com.Caregrade.Apptive.Apptive7th.Final.context_final;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade4;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade_total;
+import static com.Caregrade.Apptive.Apptive7th.Final.holdState;
 import static com.Caregrade.Apptive.Apptive7th.Final.textView4;
 import static com.Caregrade.Apptive.Apptive7th.Final.textView_total;
 import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.db4;
@@ -99,33 +100,37 @@ public class Final_fourth_ListViewAdapter extends BaseAdapter {
       }
     }
 
+
     holder.button.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        temp_temp4 = false;
-        if (holder.button.isChecked()) { // 누르므로써 버튼이 check가 될경우
-          holder.button.setChecked(true);
-          holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
-          holder.subject.setTextColor(Color.parseColor("#FFA500"));
-          float num = getGradepoint(position);
-          grade4 += num;
-          grade_total += num;
-          textView4.setText(String.valueOf(grade4));
-          textView_total.setText(String.valueOf(grade_total));
-          update(holder.subject.getText().toString(), 1);
-        } else {
-          holder.button.setChecked(false);
-          holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
-          holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
-          float num = getGradepoint(position);
-          grade4 -= num;
-          grade_total -= num;
-          textView4.setText(String.valueOf(grade4));
-          textView_total.setText(String.valueOf(grade_total));
-          update(holder.subject.getText().toString(), 0);
+        if (!holdState) {
+          temp_temp4 = false;
+          if (holder.button.isChecked()) { // 누르므로써 버튼이 check가 될경우
+            holder.button.setChecked(true);
+            holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
+            holder.subject.setTextColor(Color.parseColor("#FFA500"));
+            float num = getGradepoint(position);
+            grade4 += num;
+            grade_total += num;
+            textView4.setText(String.valueOf(grade4));
+            textView_total.setText(String.valueOf(grade_total));
+            update(holder.subject.getText().toString(), 1);
+          } else {
+            holder.button.setChecked(false);
+            holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
+            holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
+            float num = getGradepoint(position);
+            grade4 -= num;
+            grade_total -= num;
+            textView4.setText(String.valueOf(grade4));
+            textView_total.setText(String.valueOf(grade_total));
+            update(holder.subject.getText().toString(), 0);
+          }
         }
       }
     });
+
     return view;
   }
 

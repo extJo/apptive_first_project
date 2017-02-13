@@ -24,13 +24,25 @@
             android:id="@+id/final_text"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="9"
+            android:layout_weight="8"
             android:gravity="center_vertical"
             android:paddingStart="40dp"
             android:text="전공기초"
             android:textColor="@color/white"
             android:textSize="20dp"/>
 
+
+        <ImageButton
+            android:id="@+id/hold_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:padding="7dp"
+            android:layout_weight="1"
+            android:background="#222222"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_button_28"/>
         <ImageButton
             android:id="@+id/setting_button"
             android:layout_width="0dp"

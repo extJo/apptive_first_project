@@ -32,12 +32,16 @@ public class Final extends BaseActivity {
   static TextView textView3;
   static TextView textView4;
   static TextView textView_total;
+  ImageButton holdButton;
   static int grade1 = 0;
   static int grade2 = 0;
   static int grade3 = 0;
   static float grade4 = 0;
   static float grade4_delete = 0f;
   static float grade_total = 0f;
+
+  static boolean holdState = false;   //holdButton에 대한 상태를 나타내는 boolean
+
   TextView textView;
   int i = 0;
   Workbook wb;
@@ -72,6 +76,7 @@ public class Final extends BaseActivity {
     grade3 = pref.getInt("grade3", 0);
     grade4 = pref.getFloat("grade4", 0f);
     grade_total = pref.getFloat("grade_total", 0f);
+    holdState = pref.getBoolean("holdButton", false);
 
     textView = (TextView) findViewById(R.id.final_text);
     textView1 = (TextView) findViewById(R.id.final_grade_current1);
@@ -79,6 +84,9 @@ public class Final extends BaseActivity {
     textView3 = (TextView) findViewById(R.id.final_grade_current3);
     textView4 = (TextView) findViewById(R.id.final_grade_current4);
     textView_total = (TextView) findViewById(R.id.final_grade_current);
+
+    holdButton = (ImageButton) findViewById(R.id.hold_button);
+    holdButton.setOnClickListener(holdListener);
 
     final LinearLayout firstLinear = (LinearLayout) findViewById(R.id.final_tab_first);
     final LinearLayout secondLinear = (LinearLayout) findViewById(R.id.final_tab_second);
@@ -164,7 +172,13 @@ public class Final extends BaseActivity {
         viewPager.setCurrentItem(tab.getPosition());
       }
 
+
     });
+
+    //holdState, holdButton
+    if(holdState){
+        holdButton.setImageResource(R.drawable.ic_button_27);
+    }
 
 
     try {
@@ -193,6 +207,21 @@ public class Final extends BaseActivity {
     });
 
   }
+
+  ImageButton.OnClickListener holdListener = new View.OnClickListener(){
+    @Override
+    public void onClick(View v) {
+      if(!holdState) {
+        holdState = true;
+        holdButton.setImageResource(R.drawable.ic_button_27);
+      }
+      else{
+        holdState = false;
+        holdButton.setImageResource(R.drawable.ic_button_28);
+      }
+
+    }
+  };
 
   @Override
   public void onBackPressed() {
@@ -262,6 +291,7 @@ public class Final extends BaseActivity {
     editor.putInt("grade3", grade3);
     editor.putFloat("grade4", grade4);
     editor.putFloat("grade_total", grade_total);
+    editor.putBoolean("holdButton", holdState);
     editor.commit();
     super.onStop();
   }
