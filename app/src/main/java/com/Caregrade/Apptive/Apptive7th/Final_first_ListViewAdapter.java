@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -76,6 +78,7 @@ public class Final_first_ListViewAdapter extends BaseAdapter implements View.OnC
   //view를 불러오는 과정
   public View getView(final int position, View view, final ViewGroup parent) {
     final Final_first_ListViewAdapter.ViewHolder holder;
+
     if (view == null) {
       holder = new Final_first_ListViewAdapter.ViewHolder();
       view = inflater.inflate(R.layout.activity_final_first_listview, null);
@@ -107,6 +110,7 @@ public class Final_first_ListViewAdapter extends BaseAdapter implements View.OnC
     // button에 click event가 들어올경우에 대해서 행하는 과정
     // check를 하게되면 button 배경이 표시로 바뀌서 전공기초의 숫자와 전체 학점의 숫자를 그 subject에 대한 grade만큼 올려줌
     // check가 되었으니, db의 check_num 도 1로 update해줍니다
+<<<<<<< HEAD
       holder.button.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -137,6 +141,54 @@ public class Final_first_ListViewAdapter extends BaseAdapter implements View.OnC
               update(holder.subject.getText().toString(), 0);
             }
           }
+=======
+    final LinearLayout listView = (LinearLayout) view.findViewById(R.id.activity_fianl_listview);
+    listView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        temp_temp = false; // db를 이용하여서 다 불러왔다는 표시로 위 96line의 if안에 들어가지 말라는 표시:false
+        if (holder.button.isChecked()) {
+          holder.button.setChecked(false);
+          holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
+          holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
+          int num = getGradepoint(position);
+          grade1 -= num;
+          grade_total -= num;
+          textView1.setText(String.valueOf(grade1));
+          textView_total.setText(String.valueOf(grade_total));
+          update(holder.subject.getText().toString(), 0);
+        }
+        // check를 풀게되면 button 배경이 표시로 바뀌서 전공기초의 숫자와 전체 학점의 숫자를 그 subject에 대한 grade만큼 내려줌
+        // check가 풀리게되면, db의 check_num 도 0로 update해줌
+        else {
+          holder.button.setChecked(true);
+          holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
+          holder.subject.setTextColor(Color.parseColor("#FFA500"));
+          int num = getGradepoint(position);
+          grade1 += num;
+          grade_total += num;
+          textView1.setText(String.valueOf(grade1));
+          textView_total.setText(String.valueOf(grade_total));
+          update(holder.subject.getText().toString(), 1);
+        }
+      }
+    });
+
+    holder.button.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        temp_temp = false; // db를 이용하여서 다 불러왔다는 표시로 위 96line의 if안에 들어가지 말라는 표시:false
+        if (holder.button.isChecked()) {
+          holder.button.setChecked(true);
+          holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
+          holder.subject.setTextColor(Color.parseColor("#FFA500"));
+          int num = getGradepoint(position);
+          grade1 += num;
+          grade_total += num;
+          textView1.setText(String.valueOf(grade1));
+          textView_total.setText(String.valueOf(grade_total));
+          update(holder.subject.getText().toString(), 1);
+>>>>>>> refs/remotes/origin/master
         }
       });
 
