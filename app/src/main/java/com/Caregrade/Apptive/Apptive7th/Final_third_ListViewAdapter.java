@@ -13,7 +13,6 @@ import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import static com.Caregrade.Apptive.Apptive7th.Final.context_final;
 import static com.Caregrade.Apptive.Apptive7th.Final.grade3;
@@ -102,52 +101,13 @@ public class Final_third_ListViewAdapter extends BaseAdapter {
       }
     }
 
-<<<<<<< HEAD
-=======
     final LinearLayout listview = (LinearLayout) view.findViewById(R.id.activity_final_third_listview);
     listview.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        temp_temp3 = false;
-        if (holder.button.isChecked()) {
-          holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
-          holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
-          int num = getGradepoint(position);
-          grade3 -= num;
-          grade_total -= num;
-          textView3.setText(String.valueOf(grade3));
-          textView_total.setText(String.valueOf(grade_total));
-          update(holder.subject.getText().toString(), 0);
-        } else {
-          holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
-          holder.subject.setTextColor(Color.parseColor("#FFA500"));
-          int num = getGradepoint(position);
-          grade3 += num;
-          grade_total += num;
-          textView3.setText(String.valueOf(grade3));
-          textView_total.setText(String.valueOf(grade_total));
-          update(holder.subject.getText().toString(), 1);
-        }
-      }
-    });
->>>>>>> refs/remotes/origin/master
-
-    holder.button.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        if (!holdState) {
+        if(!holdState) {
           temp_temp3 = false;
           if (holder.button.isChecked()) {
-            holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
-            holder.subject.setTextColor(Color.parseColor("#FFA500"));
-            int num = getGradepoint(position);
-            grade3 += num;
-            grade_total += num;
-            textView3.setText(String.valueOf(grade3));
-            textView_total.setText(String.valueOf(grade_total));
-            update(holder.subject.getText().toString(), 1);
-
-          } else {
             holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
             holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
             int num = getGradepoint(position);
@@ -156,28 +116,22 @@ public class Final_third_ListViewAdapter extends BaseAdapter {
             textView3.setText(String.valueOf(grade3));
             textView_total.setText(String.valueOf(grade_total));
             update(holder.subject.getText().toString(), 0);
+          } else {
+            holder.button.setBackgroundResource(R.drawable.ic_button_check_icon_total);
+            holder.subject.setTextColor(Color.parseColor("#FFA500"));
+            int num = getGradepoint(position);
+            grade3 += num;
+            grade_total += num;
+            textView3.setText(String.valueOf(grade3));
+            textView_total.setText(String.valueOf(grade_total));
+            update(holder.subject.getText().toString(), 1);
           }
         }
       }
     });
-
     return view;
   }
 
-  public void filter(String charText) {
-    charText = charText.toLowerCase(Locale.getDefault());
-    Subjectlist.clear();
-    if (charText.length() == 0) {
-      Subjectlist.addAll(arraylist);
-    } else {
-      for (Subject sj : arraylist) {
-        if (sj.getSubject().toLowerCase(Locale.getDefault()).contains(charText)) {
-          Subjectlist.add(sj);
-        }
-      }
-    }
-    notifyDataSetChanged();
-  }
 
   public int getGradepoint(int position) {
     String string = Subjectlist.get(position).getGrade();
