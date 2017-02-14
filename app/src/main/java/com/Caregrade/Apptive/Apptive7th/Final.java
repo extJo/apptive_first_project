@@ -178,6 +178,8 @@ public class Final extends BaseActivity {
     //holdState, holdButton
     if(holdState){
         holdButton.setImageResource(R.drawable.ic_lockopen_29);
+    } else {
+      holdButton.setImageResource(R.drawable.ic_lockopen_30);
     }
 
 

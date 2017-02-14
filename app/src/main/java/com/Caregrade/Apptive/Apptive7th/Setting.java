@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import static com.Caregrade.Apptive.Apptive7th.Final.holdState;
 import static com.Caregrade.Apptive.Apptive7th.Final_first_fragment.db;
 import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.db4;
 import static com.Caregrade.Apptive.Apptive7th.Final_fourth_fragment.dbcheck4;
@@ -40,6 +41,7 @@ public class Setting extends BaseActivity {
       editor.putBoolean("Second_DB", false);
       editor.putBoolean("Third_DB", false);
       editor.putBoolean("Fourth_DB", false);
+      editor.putBoolean("holdButton", false);
       editor.commit();
 
       db.execSQL("delete from " + "Sortdata");
