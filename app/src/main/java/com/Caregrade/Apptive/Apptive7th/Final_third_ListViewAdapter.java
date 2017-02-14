@@ -159,6 +159,14 @@ public class Final_third_ListViewAdapter extends BaseAdapter {
             update(holder.subject.getText().toString(), 0);
           }
         }
+        else {
+          if (holder.button.isChecked()) {
+            holder.button.setChecked(false);
+          }
+          else{
+            holder.button.setChecked(true);
+          }
+        }
       }
     });
 
