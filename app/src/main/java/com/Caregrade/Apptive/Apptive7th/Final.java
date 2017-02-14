@@ -177,7 +177,7 @@ public class Final extends BaseActivity {
 
     //holdState, holdButton
     if(holdState){
-        holdButton.setImageResource(R.drawable.ic_button_27);
+        holdButton.setImageResource(R.drawable.ic_lockopen_29);
     }
 
 
@@ -213,11 +213,11 @@ public class Final extends BaseActivity {
     public void onClick(View v) {
       if(!holdState) {
         holdState = true;
-        holdButton.setImageResource(R.drawable.ic_button_27);
+        holdButton.setImageResource(R.drawable.ic_lockopen_29);
       }
       else{
         holdState = false;
-        holdButton.setImageResource(R.drawable.ic_button_28);
+        holdButton.setImageResource(R.drawable.ic_lockopen_30);
       }
 
     }

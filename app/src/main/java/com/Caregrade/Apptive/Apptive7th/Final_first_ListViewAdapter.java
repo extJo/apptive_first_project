@@ -160,6 +160,17 @@ public class Final_first_ListViewAdapter extends BaseAdapter implements View.OnC
             textView_total.setText(String.valueOf(grade_total));
             update(holder.subject.getText().toString(), 1);
           }
+          else {
+            holder.button.setChecked(false);
+            holder.button.setBackgroundResource(R.drawable.ic_button_box_icon);
+            holder.subject.setTextColor(Color.parseColor("#E1E1E1"));
+            int num = getGradepoint(position);
+            grade1 -= num;
+            grade_total -= num;
+            textView1.setText(String.valueOf(grade1));
+            textView_total.setText(String.valueOf(grade_total));
+            update(holder.subject.getText().toString(), 0);
+          }
         }
       }
     });
